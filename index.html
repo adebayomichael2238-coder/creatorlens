@@ -13,7 +13,7 @@
   --purple:#7c3aed; --pl:#a78bfa; --pdim:rgba(124,58,237,0.12); --pglow:rgba(124,58,237,0.22);
   --text:#e8e8f5; --muted:#6b6b90; --dim:#2a2a40;
   --green:#34d399; --yellow:#fbbf24; --red:#f87171; --blue:#60a5fa;
-  --sidebar:220px; --bottomnav:64px;
+  --bottomnav:64px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;-webkit-tap-highlight-color:transparent;}
@@ -21,46 +21,40 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 ::-webkit-scrollbar{width:3px;height:3px;}
 ::-webkit-scrollbar-thumb{background:var(--purple);border-radius:2px;}
 
-/* ── Layout ── */
 #app{display:flex;height:100vh;overflow:hidden;}
-#sidebar{width:var(--sidebar);flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;transition:width .25s;overflow:hidden;z-index:100;}
+#sidebar{width:220px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;transition:width .25s;overflow:hidden;z-index:100;}
 #sidebar.collapsed{width:56px;}
-#main{flex:1;overflow-y:auto;position:relative;padding-bottom:0;}
+#main{flex:1;overflow-y:auto;position:relative;}
 #page{max-width:1080px;margin:0 auto;padding:28px 20px 40px;}
 
-/* ── Bottom nav (mobile) ── */
 #bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:var(--bottomnav);background:var(--surface);border-top:1px solid var(--border);z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
-.bnav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 10px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:10px;transition:all .15s;flex:1;}
+.bnav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 6px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:10px;transition:all .15s;flex:1;}
 .bnav-item.active{color:var(--pl);}
-.bnav-item svg{width:20px;height:20px;flex-shrink:0;}
+.bnav-item svg{width:20px;height:20px;}
 .bnav-label{font-size:9px;font-family:'DM Sans',sans-serif;font-weight:500;white-space:nowrap;}
 
-/* ── Sidebar ── */
 .logo{padding:16px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;white-space:nowrap;overflow:hidden;}
 .logo-icon{width:32px;height:32px;border-radius:8px;background:var(--purple);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px var(--pglow);}
-.logo-icon svg{width:18px;height:18px;color:#fff;}
-.logo-text{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;white-space:nowrap;}
+.logo-icon svg{width:17px;height:17px;color:#fff;}
+.logo-text{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;}
 .logo-text span{color:var(--pl);}
 nav{flex:1;padding:8px 6px;display:flex;flex-direction:column;gap:1px;overflow-y:auto;overflow-x:hidden;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:400;cursor:pointer;text-align:left;white-space:nowrap;overflow:hidden;border-left:2px solid transparent;transition:all .15s;width:100%;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12.5px;cursor:pointer;text-align:left;white-space:nowrap;overflow:hidden;border-left:2px solid transparent;transition:all .15s;width:100%;}
 .nav-item:hover{background:var(--card);color:var(--text);}
 .nav-item.active{background:var(--pdim);color:var(--pl);border-left-color:var(--purple);font-weight:500;}
-.nav-item svg{width:16px;height:16px;flex-shrink:0;opacity:.8;}
+.nav-item svg{width:15px;height:15px;flex-shrink:0;opacity:.75;}
 .nav-item.active svg{opacity:1;}
-.nav-label{overflow:hidden;}
 .collapse-btn{margin:8px 6px;padding:8px 10px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:flex-end;gap:6px;transition:all .15s;white-space:nowrap;overflow:hidden;}
-.collapse-btn:hover{border-color:var(--purple);color:var(--text);}
+.collapse-btn:hover{border-color:var(--purple);}
 #sidebar.collapsed .collapse-btn{justify-content:center;}
 
-/* ── Forms ── */
 input,textarea,select{background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 13px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border .2s;width:100%;}
 input:focus,textarea:focus{border-color:var(--purple);}
 select{cursor:pointer;}
 textarea{resize:none;line-height:1.6;}
 
-/* ── Buttons ── */
 .btn{border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all .2s;font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
-.btn-primary{background:var(--purple);color:#fff;box-shadow:0 0 16px var(--pglow);}
+.btn-primary{background:var(--purple);color:#fff;box-shadow:0 0 14px var(--pglow);}
 .btn-primary:hover{background:#6d28d9;}
 .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);}
 .btn-ghost:hover{border-color:var(--border-h);color:var(--text);}
@@ -69,144 +63,145 @@ textarea{resize:none;line-height:1.6;}
 .btn:disabled{opacity:.4;cursor:not-allowed;}
 .btn-full{width:100%;justify-content:center;}
 
-/* ── Cards ── */
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;}
 .card-pad{padding:18px;}
 
-/* ── Stat cards ── */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:22px;}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:20px;}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;}
 .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
 .stat-value{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;line-height:1;}
 .stat-sub{font-size:11px;color:var(--muted);margin-top:4px;}
 
-/* ── Page header ── */
-.page-header{margin-bottom:22px;}
+.page-header{margin-bottom:20px;}
 .page-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:2px;}
 .page-sub{color:var(--muted);font-size:12px;}
 
-/* ── Tags ── */
 .tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;border-radius:4px;padding:2px 7px;}
 
-/* ── Video feed — vertical list ── */
-.feed-list{display:flex;flex-direction:column;gap:12px;}
-.feed-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border .2s,transform .15s;}
-.feed-card:hover{border-color:var(--border-h);transform:translateY(-1px);}
-.feed-card-inner{display:flex;gap:0;}
-.feed-thumb-wrap{position:relative;width:160px;flex-shrink:0;cursor:pointer;}
-.feed-thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;min-height:90px;}
-.feed-thumb-wrap .play-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
-.feed-card:hover .play-overlay{opacity:1;}
-.play-circle{width:36px;height:36px;border-radius:50%;background:rgba(124,58,237,.85);display:flex;align-items:center;justify-content:center;}
-.play-circle svg{width:14px;height:14px;color:#fff;margin-left:2px;}
-.feed-info{flex:1;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;}
-.feed-title{font-size:13px;font-weight:500;line-height:1.4;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.feed-meta{display:flex;gap:12px;font-size:11px;color:var(--muted);flex-wrap:wrap;margin-bottom:10px;}
-.feed-stat{display:flex;align-items:center;gap:4px;}
-.feed-stat svg{width:11px;height:11px;}
+/* ── Feed (vertical list) ── */
+.feed-list{display:flex;flex-direction:column;gap:10px;}
+.feed-card{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:border .2s;}
+.feed-card:hover{border-color:var(--border-h);}
+.feed-inner{display:flex;min-height:88px;}
+.feed-thumb{position:relative;width:136px;flex-shrink:0;cursor:pointer;background:#000;}
+.feed-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .2s;}
+.feed-thumb:hover img{opacity:.8;}
+.feed-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
+.feed-thumb:hover .feed-play{opacity:1;}
+.feed-play-circle{width:34px;height:34px;border-radius:50%;background:rgba(124,58,237,.85);display:flex;align-items:center;justify-content:center;}
+.feed-play-circle svg{width:13px;height:13px;color:#fff;margin-left:2px;}
+.feed-date-badge{position:absolute;bottom:5px;left:6px;font-size:10px;color:rgba(255,255,255,.8);background:rgba(0,0,0,.55);border-radius:3px;padding:1px 5px;}
+.feed-info{flex:1;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;}
+.feed-title{font-size:12.5px;font-weight:500;line-height:1.4;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.feed-meta{display:flex;gap:10px;font-size:11px;color:var(--muted);flex-wrap:wrap;margin-bottom:8px;align-items:center;}
+.feed-meta-item{display:flex;align-items:center;gap:3px;}
+.feed-meta-item svg{width:10px;height:10px;}
+.feed-ch-pill{font-size:10px;color:var(--pl);background:var(--pdim);border-radius:4px;padding:2px 6px;margin-left:auto;}
 .feed-actions{display:flex;gap:6px;align-items:center;}
-.feed-channel-tag{font-size:10px;color:var(--pl);background:var(--pdim);border-radius:4px;padding:2px 6px;margin-left:auto;}
 
-/* ── Shorts player ── */
-#shorts-player{position:fixed;inset:0;background:#000;z-index:2000;display:none;flex-direction:column;}
-#shorts-player.open{display:flex;}
-.sp-topbar{position:absolute;top:0;left:0;right:0;z-index:10;padding:14px 16px;display:flex;align-items:center;gap:12px;background:linear-gradient(to bottom,rgba(0,0,0,.8),transparent);}
+/* ── Shorts Player ── */
+#sp{position:fixed;inset:0;background:#000;z-index:2000;display:none;flex-direction:column;}
+#sp.open{display:flex;}
+.sp-top{position:absolute;top:0;left:0;right:0;z-index:10;padding:14px 16px;display:flex;align-items:center;gap:12px;background:linear-gradient(to bottom,rgba(0,0,0,.8),transparent);}
 .sp-back{background:rgba(255,255,255,.15);border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;backdrop-filter:blur(6px);flex-shrink:0;}
 .sp-back svg{width:16px;height:16px;}
-.sp-channel{flex:1;font-size:13px;font-weight:500;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.sp-ai-btn{background:var(--purple);border:none;border-radius:20px;color:#fff;font-size:12px;font-weight:600;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:5px;box-shadow:0 0 16px var(--pglow);}
-.sp-container{flex:1;position:relative;overflow:hidden;}
-.sp-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-.sp-slide iframe{width:100%;height:100%;border:none;}
-.sp-side{position:absolute;right:14px;bottom:130px;display:flex;flex-direction:column;gap:16px;align-items:center;z-index:10;}
-.sp-action{display:flex;flex-direction:column;align-items:center;gap:3px;}
-.sp-action-btn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
-.sp-action-btn svg{width:18px;height:18px;}
-.sp-action-btn:hover,.sp-action-btn.saved{background:rgba(124,58,237,.6);}
-.sp-action-label{font-size:9px;color:rgba(255,255,255,.7);}
-.sp-bottom{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:14px 16px 24px;background:linear-gradient(to top,rgba(0,0,0,.85),transparent);}
-.sp-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;line-height:1.4;}
-.sp-stats{font-size:12px;color:rgba(255,255,255,.6);}
+.sp-ch{flex:1;font-size:13px;font-weight:500;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.sp-ai-btn{background:var(--purple);border:none;border-radius:20px;color:#fff;font-size:12px;font-weight:600;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:5px;}
+
+/* Fixed: each slide is absolute, swap content not position */
+.sp-body{flex:1;position:relative;overflow:hidden;}
+.sp-frame{position:absolute;inset:0;background:#000;}
+.sp-frame iframe{width:100%;height:100%;border:none;display:block;}
+.sp-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#000;z-index:5;}
+.sp-loading-ring{width:36px;height:36px;border:3px solid rgba(255,255,255,.15);border-top-color:var(--purple);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.sp-side{position:absolute;right:14px;bottom:120px;display:flex;flex-direction:column;gap:16px;align-items:center;z-index:10;}
+.sp-act{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.sp-act-btn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.sp-act-btn svg{width:18px;height:18px;}
+.sp-act-btn.on{background:rgba(124,58,237,.6);}
+.sp-act-lbl{font-size:9px;color:rgba(255,255,255,.65);}
+
+.sp-bot{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:14px 16px 22px;background:linear-gradient(to top,rgba(0,0,0,.85),transparent);}
+.sp-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;line-height:1.4;}
+.sp-stats{font-size:11px;color:rgba(255,255,255,.55);}
 .sp-nav{display:flex;justify-content:center;gap:10px;margin-top:12px;}
 .sp-nav-btn{background:rgba(255,255,255,.15);border:none;border-radius:20px;color:#fff;font-size:12px;padding:7px 18px;cursor:pointer;backdrop-filter:blur(6px);display:flex;align-items:center;gap:5px;}
-.sp-nav-btn svg{width:14px;height:14px;}
+.sp-nav-btn svg{width:13px;height:13px;}
 .sp-nav-btn:disabled{opacity:.3;}
-.sp-progress{position:absolute;bottom:0;left:0;height:2px;background:var(--purple);transition:width .3s;}
+.sp-prog{position:absolute;bottom:0;left:0;height:2px;background:var(--purple);transition:width .3s;}
+.sp-counter{font-size:11px;color:rgba(255,255,255,.4);align-self:center;}
+
 #sp-ai-panel{position:absolute;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);border-radius:20px 20px 0 0;padding:18px;z-index:20;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);max-height:70vh;overflow-y:auto;}
 #sp-ai-panel.open{transform:translateY(0);}
 .ai-handle{width:32px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 14px;}
-.ai-panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px;}
-.ai-panel-result{font-size:13px;line-height:1.75;white-space:pre-wrap;}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px;}
+.ai-result{font-size:13px;line-height:1.75;white-space:pre-wrap;}
 
-/* ── Analyser modal ── */
-#modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;}
-#modal-overlay.open{display:flex;}
+/* ── Modal ── */
+#mod-ov{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;}
+#mod-ov.open{display:flex;}
 .modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:960px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;}
-.modal-header{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
-.modal-title{flex:1;font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.modal-stats{display:flex;gap:10px;font-size:11px;color:var(--muted);flex-shrink:0;}
-.modal-close{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;}
-.modal-body{display:flex;flex:1;overflow:hidden;}
-.modal-left{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;}
-.modal-right{width:300px;border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;}
-.modal-ai-hdr{padding:13px 14px;border-bottom:1px solid var(--border);}
-.modal-ai-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;}
-.modal-ai-btns{display:flex;flex-direction:column;gap:6px;}
-.modal-ai-result{flex:1;padding:14px;overflow-y:auto;font-size:13px;line-height:1.75;white-space:pre-wrap;}
-.modal-ai-empty{color:var(--muted);font-size:13px;text-align:center;margin-top:32px;padding:0 14px;}
+.mod-hdr{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+.mod-title{flex:1;font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.mod-stats{display:flex;gap:10px;font-size:11px;color:var(--muted);flex-shrink:0;}
+.mod-close{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;}
+.mod-body{display:flex;flex:1;overflow:hidden;}
+.mod-left{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;}
+.mod-right{width:300px;border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;}
+.mod-ai-hdr{padding:12px 14px;border-bottom:1px solid var(--border);}
+.mod-ai-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;}
+.mod-ai-btns{display:flex;flex-direction:column;gap:6px;}
+.mod-ai-out{flex:1;padding:14px;overflow-y:auto;font-size:13px;line-height:1.75;white-space:pre-wrap;}
+.mod-ai-empty{color:var(--muted);font-size:13px;text-align:center;margin-top:30px;padding:0 12px;}
 
-/* ── Comp rows ── */
-.comp-row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px;transition:border .2s;}
-.comp-row:hover{border-color:rgba(124,58,237,.3);}
-.comp-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;}
-.comp-info{flex:1;min-width:0;}
-.comp-name{font-size:13px;font-weight:600;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.comp-handle{font-size:11px;color:var(--muted);margin-bottom:5px;}
-.comp-stats{display:flex;gap:12px;font-size:11px;color:var(--muted);flex-wrap:wrap;}
+/* ── Channel page ── */
+.ch-hero{background:linear-gradient(135deg,rgba(124,58,237,.08),transparent);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:20px;display:flex;gap:16px;align-items:center;}
+.ch-avatar{width:68px;height:68px;border-radius:50%;object-fit:cover;border:3px solid var(--purple);flex-shrink:0;box-shadow:0 0 20px var(--pglow);}
+.ch-av-ph{width:68px;height:68px;border-radius:50%;background:var(--pdim);border:3px solid var(--purple);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ch-av-ph svg{width:28px;height:28px;color:var(--pl);}
+.ch-meta{flex:1;min-width:0;}
+.ch-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ch-handle{font-size:12px;color:var(--muted);margin-bottom:8px;}
+.ch-qs{display:flex;gap:16px;flex-wrap:wrap;}
+.ch-q{font-size:12px;color:var(--muted);}
+.ch-q strong{color:var(--text);font-weight:600;}
 
 /* ── Charts ── */
-.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;}
-.chart-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;margin-bottom:14px;}
-.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
-
-/* ── Channel header ── */
-.ch-header{background:linear-gradient(135deg,var(--card),rgba(124,58,237,.08));border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:22px;display:flex;gap:16px;align-items:center;}
-.ch-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--purple);flex-shrink:0;box-shadow:0 0 20px var(--pglow);}
-.ch-avatar-placeholder{width:64px;height:64px;border-radius:50%;background:var(--pdim);display:flex;align-items:center;justify-content:center;border:3px solid var(--purple);flex-shrink:0;}
-.ch-avatar-placeholder svg{width:28px;height:28px;color:var(--pl);}
-.ch-meta{flex:1;min-width:0;}
-.ch-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px;}
-.ch-handle{font-size:12px;color:var(--muted);margin-bottom:8px;}
-.ch-quick-stats{display:flex;gap:16px;flex-wrap:wrap;}
-.ch-qs{font-size:12px;color:var(--muted);}
-.ch-qs strong{color:var(--text);font-weight:600;}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+.chart-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;}
+.chart-box-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:16px;display:flex;align-items:center;gap:7px;}
+.chart-box-title .ct-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 
 /* ── Perf table ── */
-.perf-table{width:100%;border-collapse:collapse;}
-.perf-table th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);}
-.perf-table td{padding:9px 10px;font-size:12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.perf-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;overflow-x:auto;margin-bottom:20px;}
+.perf-table{width:100%;border-collapse:collapse;min-width:500px;}
+.perf-table th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);background:var(--card2);}
+.perf-table td{padding:9px 12px;font-size:12px;border-bottom:1px solid var(--border);vertical-align:middle;}
 .perf-table tr:last-child td{border-bottom:none;}
 .perf-table tr:hover td{background:var(--card2);}
-.perf-thumb{width:52px;height:30px;object-fit:cover;border-radius:4px;}
-.rank-badge{width:20px;height:20px;border-radius:50%;background:var(--pdim);color:var(--pl);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.perf-thumb{width:54px;height:30px;object-fit:cover;border-radius:4px;}
+.rank-n{width:22px;height:22px;border-radius:50%;background:var(--pdim);color:var(--pl);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;}
 
 /* ── Niche finder ── */
-.niche-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:14px;transition:border .2s;}
-.niche-card:hover{border-color:rgba(124,58,237,.3);}
-.niche-score-bar{height:8px;border-radius:4px;background:var(--border);margin:10px 0 6px;overflow:hidden;}
-.niche-score-fill{height:100%;border-radius:4px;transition:width 1s ease;}
-.pushed-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;transition:border .2s;}
-.pushed-card:hover{border-color:rgba(124,58,237,.3);}
-.pushed-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;}
-.pushed-info{flex:1;min-width:0;}
-.pushed-name{font-size:13px;font-weight:600;margin-bottom:3px;}
-.pushed-stats{display:flex;gap:10px;font-size:11px;color:var(--muted);flex-wrap:wrap;margin-bottom:8px;}
-.pushed-video{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:flex;gap:8px;align-items:center;cursor:pointer;transition:border .15s;}
-.pushed-video:hover{border-color:var(--border-h);}
-.pushed-vid-thumb{width:52px;height:30px;object-fit:cover;border-radius:4px;flex-shrink:0;}
-.pushed-vid-title{font-size:11px;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.4;}
-.fire-badge{font-size:10px;background:rgba(248,113,113,.15);color:var(--red);border:1px solid rgba(248,113,113,.25);border-radius:4px;padding:1px 6px;font-weight:600;}
-.hot-badge{font-size:10px;background:rgba(251,191,36,.15);color:var(--yellow);border:1px solid rgba(251,191,36,.25);border-radius:4px;padding:1px 6px;font-weight:600;}
+.signal-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:12px;transition:border .2s;}
+.signal-card:hover{border-color:rgba(124,58,237,.3);}
+.sig-sat-bar{height:7px;border-radius:4px;background:var(--border);margin:10px 0 6px;overflow:hidden;}
+.sig-sat-fill{height:100%;border-radius:4px;}
+.ch-signal-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:14px 16px;display:flex;gap:12px;transition:border .2s;}
+.ch-signal-card:hover{border-color:rgba(124,58,237,.3);}
+.sig-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;}
+.sig-info{flex:1;min-width:0;}
+.sig-name{font-size:13px;font-weight:600;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.sig-stats{display:flex;gap:8px;font-size:11px;color:var(--muted);flex-wrap:wrap;margin-bottom:7px;}
+.sig-video{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:flex;gap:8px;align-items:center;cursor:pointer;transition:border .15s;}
+.sig-video:hover{border-color:var(--border-h);}
+.sig-vid-thumb{width:54px;height:30px;object-fit:cover;border-radius:4px;flex-shrink:0;}
+.sig-vid-title{font-size:11px;flex:1;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.fire-b{font-size:10px;background:rgba(248,113,113,.15);color:var(--red);border:1px solid rgba(248,113,113,.25);border-radius:4px;padding:1px 6px;font-weight:600;}
+.hot-b{font-size:10px;background:rgba(251,191,36,.15);color:var(--yellow);border:1px solid rgba(251,191,36,.25);border-radius:4px;padding:1px 6px;font-weight:600;}
+.new-b{font-size:10px;background:rgba(96,165,250,.15);color:var(--blue);border:1px solid rgba(96,165,250,.25);border-radius:4px;padding:1px 6px;font-weight:600;}
 
 /* ── Misc ── */
 .skeleton{background:linear-gradient(90deg,var(--card) 25%,var(--border) 50%,var(--card) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:5px;}
@@ -216,53 +211,54 @@ textarea{resize:none;line-height:1.6;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--pl);animation:pulse 2s infinite;flex-shrink:0;}
 .error-msg{font-size:12px;color:var(--red);margin-top:6px;}
-.empty-state{text-align:center;color:var(--muted);font-size:13px;padding:50px 20px;}
-.empty-link{color:var(--pl);cursor:pointer;}
+.empty-st{text-align:center;color:var(--muted);font-size:13px;padding:48px 20px;}
+.empty-lnk{color:var(--pl);cursor:pointer;}
 .row{display:flex;align-items:center;gap:10px;}
-.row-between{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.row-b{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .col{display:flex;flex-direction:column;gap:8px;}
-.filter-bar{display:flex;gap:8px;flex-wrap:wrap;}
 .insight-block{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;}
-.insight-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
-.insight-label{font-size:10px;color:var(--pl);text-transform:uppercase;letter-spacing:.8px;font-weight:600;}
-.notif-panel{display:flex;flex-direction:column;gap:8px;margin-bottom:22px;}
-.notif-item{display:flex;align-items:flex-start;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 13px;}
+.ins-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.ins-lbl{font-size:10px;color:var(--pl);text-transform:uppercase;letter-spacing:.8px;font-weight:600;}
+.notif-panel{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;}
+.notif-item{display:flex;align-items:flex-start;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 13px;}
 .notif-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;}
-.notif-text{font-size:13px;}
+.notif-txt{font-size:13px;}
 .notif-sub{font-size:11px;color:var(--muted);margin-top:2px;}
-.tab-bar{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:18px;}
+.tab-bar{display:flex;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:16px;}
 .tab-btn{flex:1;padding:7px;border:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;background:transparent;color:var(--muted);}
 .tab-btn.active{background:var(--purple);color:#fff;}
-.target-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;}
+.comp-row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 15px;display:flex;align-items:center;gap:12px;transition:border .2s;}
+.comp-row:hover{border-color:rgba(124,58,237,.3);}
+.comp-av{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;}
+.comp-info{flex:1;min-width:0;}
+.comp-name{font-size:13px;font-weight:600;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.comp-handle{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.comp-stats{display:flex;gap:10px;font-size:11px;color:var(--muted);}
+.target-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 15px;display:flex;align-items:center;gap:12px;}
 .target-info{flex:1;}
-.target-label{font-size:13px;font-weight:500;margin-bottom:5px;}
-.target-bar-bg{background:var(--border);border-radius:4px;height:6px;}
-.target-bar{height:6px;border-radius:4px;background:var(--purple);transition:width .4s;}
-.target-progress{font-size:11px;color:var(--muted);margin-top:4px;}
-.swipe-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;transition:border .2s;}
+.target-lbl{font-size:13px;font-weight:500;margin-bottom:5px;}
+.tbar-bg{background:var(--border);border-radius:4px;height:6px;}
+.tbar{height:6px;border-radius:4px;background:var(--purple);transition:width .4s;}
+.tbar-prog{font-size:11px;color:var(--muted);margin-top:4px;}
+.swipe-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 15px;transition:border .2s;}
 .swipe-card:hover{border-color:rgba(124,58,237,.4);}
-.idea-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;transition:border .2s;}
+.idea-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 15px;transition:border .2s;}
 .idea-card:hover{border-color:rgba(124,58,237,.4);}
-.idea-num{width:24px;height:24px;border-radius:7px;background:var(--pdim);color:var(--pl);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.ch-banner{background:linear-gradient(135deg,var(--card),rgba(124,58,237,.08));border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:22px;}
+.idea-num{width:24px;height:24px;border-radius:6px;background:var(--pdim);color:var(--pl);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-/* ── Mobile ── */
 @media(max-width:768px){
   #sidebar{display:none;}
   #bottom-nav{display:flex;}
   #main{padding-bottom:var(--bottomnav);}
-  #page{padding:20px 14px 80px;}
-  .modal-right{display:none;}
-  .modal-left{padding:14px;}
+  #page{padding:18px 13px 80px;}
+  .mod-right{display:none;}
+  .mod-left{padding:13px;}
   .charts-grid{grid-template-columns:1fr;}
-  .feed-thumb-wrap{width:120px;}
-  .ch-header{flex-direction:column;text-align:center;}
-  .ch-quick-stats{justify-content:center;}
-  .perf-table th:nth-child(2),.perf-table td:nth-child(2){display:none;}
+  .feed-thumb{width:120px;}
+  .ch-hero{flex-direction:column;text-align:center;}
+  .ch-qs{justify-content:center;}
 }
-@media(min-width:769px){
-  #bottom-nav{display:none!important;}
-}
+@media(min-width:769px){#bottom-nav{display:none!important;}}
 </style>
 </head>
 <body>
@@ -273,83 +269,80 @@ textarea{resize:none;line-height:1.6;}
       <div class="logo-text">Creator<span>Lens</span></div>
     </div>
     <nav id="nav"></nav>
-    <button class="collapse-btn" id="collapse-btn" onclick="toggleSidebar()">
-      <span id="collapse-label">← Collapse</span>
-    </button>
+    <button class="collapse-btn" id="col-btn" onclick="toggleSB()"><span id="col-lbl">← Collapse</span></button>
   </div>
   <div id="main"><div id="page"></div></div>
 </div>
-
-<!-- Bottom Nav (mobile) -->
-<div id="bottom-nav" id="bottom-nav"></div>
+<div id="bottom-nav"></div>
 
 <!-- Shorts Player -->
-<div id="shorts-player">
-  <div class="sp-topbar">
+<div id="sp">
+  <div class="sp-top">
     <button class="sp-back" onclick="closeSP()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
-    <div class="sp-channel" id="sp-channel"></div>
-    <button class="sp-ai-btn" onclick="toggleAIPanel()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
+    <div class="sp-ch" id="sp-ch"></div>
+    <button class="sp-ai-btn" onclick="toggleSPAI()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
       AI Insights
     </button>
   </div>
-  <div class="sp-container" id="sp-container">
-    <div class="sp-slide" id="sp-prev"></div>
-    <div class="sp-slide" id="sp-curr"></div>
-    <div class="sp-slide" id="sp-next"></div>
+  <div class="sp-body">
+    <div class="sp-frame" id="sp-frame">
+      <div class="sp-loading" id="sp-loading"><div class="sp-loading-ring"></div></div>
+      <iframe id="sp-iframe" style="width:100%;height:100%;border:none;display:block;opacity:0;" allow="autoplay;encrypted-media" allowfullscreen></iframe>
+    </div>
   </div>
   <div class="sp-side">
-    <div class="sp-action"><button class="sp-action-btn" id="sp-save-btn" onclick="spSave()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="sp-action-label">Save</span></div>
-    <div class="sp-action"><button class="sp-action-btn" onclick="spAddSwipe()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></button><span class="sp-action-label">Swipe</span></div>
+    <div class="sp-act"><button class="sp-act-btn" id="sp-save-btn" onclick="spSave()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="sp-act-lbl">Save</span></div>
+    <div class="sp-act"><button class="sp-act-btn" onclick="spSwipe()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></button><span class="sp-act-lbl">Swipe</span></div>
   </div>
-  <div class="sp-bottom">
+  <div class="sp-bot">
     <div class="sp-title" id="sp-title"></div>
     <div class="sp-stats" id="sp-stats"></div>
     <div class="sp-nav">
       <button class="sp-nav-btn" id="sp-prev-btn" onclick="spNav(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg> Prev</button>
-      <span id="sp-counter" style="font-size:11px;color:rgba(255,255,255,.45);align-self:center;"></span>
+      <span class="sp-counter" id="sp-ctr"></span>
       <button class="sp-nav-btn" id="sp-next-btn" onclick="spNav(1)">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg></button>
     </div>
   </div>
-  <div class="sp-progress" id="sp-progress"></div>
+  <div class="sp-prog" id="sp-prog"></div>
   <div id="sp-ai-panel">
     <div class="ai-handle"></div>
     <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:12px;">AI Insights</div>
-    <div class="ai-panel-grid">
+    <div class="ai-grid">
       <button class="btn btn-primary btn-sm" onclick="spAI('steal')">🎯 Steal Format</button>
       <button class="btn btn-ghost btn-sm" onclick="spAI('hook')">📊 Score Hook</button>
       <button class="btn btn-ghost btn-sm" onclick="spAI('format')">📐 Format</button>
       <button class="btn btn-ghost btn-sm" onclick="spAI('ideas')">💡 Ideas</button>
     </div>
-    <div class="ai-panel-result" id="sp-ai-result"><div style="color:var(--muted);font-size:13px;">Tap a button for AI insights</div></div>
+    <div class="ai-result" id="sp-ai-result"><div style="color:var(--muted);font-size:13px;">Tap a button for AI insights</div></div>
   </div>
 </div>
 
 <!-- Analyser Modal -->
-<div id="modal-overlay" onclick="closeMod(event)">
+<div id="mod-ov" onclick="closeMod(event)">
   <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-header">
-      <div class="modal-title" id="mod-title"></div>
-      <div class="modal-stats" id="mod-stats"></div>
-      <button class="modal-close" onclick="closeMod()">×</button>
+    <div class="mod-hdr">
+      <div class="mod-title" id="mod-title"></div>
+      <div class="mod-stats" id="mod-stats"></div>
+      <button class="mod-close" onclick="closeMod()">×</button>
     </div>
-    <div class="modal-body">
-      <div class="modal-left">
+    <div class="mod-body">
+      <div class="mod-left">
         <div style="border-radius:10px;overflow:hidden;background:#000;"><iframe id="mod-iframe" style="width:100%;aspect-ratio:16/9;border:none;display:block;" allow="autoplay;encrypted-media" allowfullscreen></iframe></div>
-        <textarea id="mod-note" placeholder="Your notes..." style="height:75px;"></textarea>
+        <textarea id="mod-note" placeholder="Your notes..." style="height:70px;"></textarea>
         <button class="btn btn-ghost btn-sm" onclick="saveNote()" style="align-self:flex-start;">💾 Save to Swipe File</button>
       </div>
-      <div class="modal-right">
-        <div class="modal-ai-hdr">
-          <div class="modal-ai-lbl">AI Analysis</div>
-          <div class="modal-ai-btns">
+      <div class="mod-right">
+        <div class="mod-ai-hdr">
+          <div class="mod-ai-lbl">AI Analysis</div>
+          <div class="mod-ai-btns">
             <button class="btn btn-primary btn-sm" onclick="runAI('steal')">🎯 Steal This Format</button>
             <button class="btn btn-ghost btn-sm" onclick="runAI('hook')">📊 Score the Hook</button>
             <button class="btn btn-ghost btn-sm" onclick="runAI('format')">📐 Identify Format</button>
             <button class="btn btn-ghost btn-sm" onclick="runAI('ideas')">💡 Generate Ideas</button>
           </div>
         </div>
-        <div class="modal-ai-result" id="mod-ai"><div class="modal-ai-empty">Run an analysis to get AI insights</div></div>
+        <div class="mod-ai-out" id="mod-ai"><div class="mod-ai-empty">Run an analysis to get AI insights</div></div>
       </div>
     </div>
   </div>
@@ -363,226 +356,126 @@ const MY_CHANNEL = '@MatterverseYT';
 // ─── State ────────────────────────────────────────────────────────────────────
 const S = {
   myStats:null, myChannelId:null, myAvatar:null,
-  competitors: JSON.parse(localStorage.getItem('cl_competitors')||'[]'),
-  watchlist: JSON.parse(localStorage.getItem('cl_watchlist')||'[]'),
-  swipeFile: JSON.parse(localStorage.getItem('cl_swipefile')||'[]'),
-  targets: JSON.parse(localStorage.getItem('cl_targets')||'[]'),
-  targetProgress: JSON.parse(localStorage.getItem('cl_progress')||'{}'),
-  page:'dashboard', sidebarCollapsed:false, currentVideo:null,
+  competitors: JSON.parse(localStorage.getItem('cl_comp')||'[]'),
+  watchlist: JSON.parse(localStorage.getItem('cl_wl')||'[]'),
+  swipeFile: JSON.parse(localStorage.getItem('cl_sf')||'[]'),
+  targets: JSON.parse(localStorage.getItem('cl_tg')||'[]'),
+  targetProgress: JSON.parse(localStorage.getItem('cl_tp')||'{}'),
+  page:'dashboard', sbCollapsed:false, curVid:null,
 };
-const persist = () => {
-  localStorage.setItem('cl_competitors',JSON.stringify(S.competitors));
-  localStorage.setItem('cl_watchlist',JSON.stringify(S.watchlist));
-  localStorage.setItem('cl_swipefile',JSON.stringify(S.swipeFile));
-  localStorage.setItem('cl_targets',JSON.stringify(S.targets));
-  localStorage.setItem('cl_progress',JSON.stringify(S.targetProgress));
+const persist=()=>{
+  localStorage.setItem('cl_comp',JSON.stringify(S.competitors));
+  localStorage.setItem('cl_wl',JSON.stringify(S.watchlist));
+  localStorage.setItem('cl_sf',JSON.stringify(S.swipeFile));
+  localStorage.setItem('cl_tg',JSON.stringify(S.targets));
+  localStorage.setItem('cl_tp',JSON.stringify(S.targetProgress));
 };
 
-// ─── SVG Icons ────────────────────────────────────────────────────────────────
-const ICONS = {
-  dashboard:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>`,
-  competitors:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.85"/></svg>`,
+// ─── Icons ────────────────────────────────────────────────────────────────────
+const IC = {
+  dashboard:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
+  competitors:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/></svg>`,
   feed:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5,3 19,12 5,21"/></svg>`,
   watchlist:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>`,
-  swipefile:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>`,
-  ideas:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>`,
+  swipefile:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+  ideas:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
   insights:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>`,
   targets:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
   channel:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98"/></svg>`,
   niche:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
 };
 
-const NAV = [
+const NAV_ITEMS = [
   {id:'dashboard',label:'Dashboard'},{id:'competitors',label:'Competitors'},
   {id:'feed',label:'Video Feed'},{id:'watchlist',label:'Watchlist'},
   {id:'swipefile',label:'Swipe File'},{id:'ideas',label:'Idea Vault'},
   {id:'insights',label:'Insights'},{id:'targets',label:'Targets'},
   {id:'channel',label:'My Channel'},{id:'niche',label:'Niche Finder'},
 ];
-
-const BOTTOM_NAV = [
-  {id:'dashboard',label:'Home'},{id:'feed',label:'Feed'},
-  {id:'niche',label:'Niche'},{id:'channel',label:'Channel'},
-  {id:'competitors',label:'More'},
-];
+const BOT_NAV=[{id:'dashboard',label:'Home'},{id:'feed',label:'Feed'},{id:'niche',label:'Niche'},{id:'channel',label:'Channel'},{id:'competitors',label:'More'}];
 
 // ─── Utils ────────────────────────────────────────────────────────────────────
-const fmtN = n=>{n=parseInt(n)||0;if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1000)return(n/1000).toFixed(1)+'K';return n.toString();};
-const ago = d=>{const diff=Date.now()-new Date(d);const days=Math.floor(diff/86400000);if(days===0)return'Today';if(days===1)return'Yesterday';if(days<30)return days+'d ago';if(days<365)return Math.floor(days/30)+'mo ago';return Math.floor(days/365)+'y ago';};
-const tag=(text,color='#7c3aed')=>`<span class="tag" style="background:${color}22;color:${color};border:1px solid ${color}44">${text}</span>`;
-const skel=(n=4)=>Array(n).fill(0).map(()=>`<div style="background:var(--card);border-radius:12px;overflow:hidden;"><div class="skeleton" style="aspect-ratio:16/9;"></div><div style="padding:12px;display:flex;flex-direction:column;gap:7px;"><div class="skeleton" style="height:13px;width:85%;"></div><div class="skeleton" style="height:11px;width:55%;"></div></div></div>`).join('');
+const fN=n=>{n=parseInt(n)||0;if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1000)return(n/1000).toFixed(1)+'K';return n.toString();};
+const ago=d=>{const diff=Date.now()-new Date(d);const days=Math.floor(diff/86400000);if(days===0)return'Today';if(days===1)return'Yesterday';if(days<30)return days+'d ago';if(days<365)return Math.floor(days/30)+'mo ago';return Math.floor(days/365)+'y ago';};
+const tag=(t,c='#7c3aed')=>`<span class="tag" style="background:${c}22;color:${c};border:1px solid ${c}44">${t}</span>`;
+const skRow=(n=4)=>Array(n).fill(0).map(()=>`<div class="skeleton" style="height:88px;border-radius:13px;"></div>`).join('');
 
-async function ytF(path){
-  const r=await fetch(`https://www.googleapis.com/youtube/v3/${path}&key=${YT_KEY}`);
-  if(!r.ok){const e=await r.json();throw new Error(e.error?.message||'YouTube API error');}
-  return r.json();
-}
-async function clF(prompt,sys=''){
-  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys||'You are a YouTube Shorts content strategist. Be concise, specific, actionable.',messages:[{role:'user',content:prompt}]})});
-  const d=await r.json();return d.content?.[0]?.text||'No response';
-}
+async function ytF(p){const r=await fetch(`https://www.googleapis.com/youtube/v3/${p}&key=${YT_KEY}`);if(!r.ok){const e=await r.json();throw new Error(e.error?.message||'YouTube API error');}return r.json();}
+async function clF(prompt,sys=''){const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys||'You are a YouTube Shorts content strategist. Be concise, specific, actionable.',messages:[{role:'user',content:prompt}]})});const d=await r.json();return d.content?.[0]?.text||'No response';}
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
-window.onload = async()=>{
-  renderNav(); renderBottomNav();
-  try{
-    const h=MY_CHANNEL.replace('@','');
-    const d=await ytF(`channels?part=statistics,snippet&forHandle=${h}`);
-    if(d.items?.length){
-      S.myStats=d.items[0].statistics;
-      S.myChannelId=d.items[0].id;
-      S.myAvatar=d.items[0].snippet?.thumbnails?.medium?.url||d.items[0].snippet?.thumbnails?.default?.url||null;
-    }
-  }catch(e){}
+window.onload=async()=>{
+  renderNav();renderBotNav();
+  try{const h=MY_CHANNEL.replace('@','');const d=await ytF(`channels?part=statistics,snippet&forHandle=${h}`);if(d.items?.length){S.myStats=d.items[0].statistics;S.myChannelId=d.items[0].id;S.myAvatar=d.items[0].snippet?.thumbnails?.medium?.url||null;}}catch(e){}
   navigate('dashboard');
 };
 
-function renderNav(){
-  document.getElementById('nav').innerHTML=NAV.map(n=>`
-    <button class="nav-item ${S.page===n.id?'active':''}" onclick="navigate('${n.id}')">
-      ${ICONS[n.id]||ICONS.dashboard}
-      <span class="nav-label">${n.label}</span>
-    </button>`).join('');
-}
-
-function renderBottomNav(){
-  document.getElementById('bottom-nav').innerHTML=BOTTOM_NAV.map(n=>`
-    <button class="bnav-item ${S.page===n.id?'active':''}" onclick="navigate('${n.id}')">
-      ${ICONS[n.id]||ICONS.dashboard}
-      <span class="bnav-label">${n.label}</span>
-    </button>`).join('');
-}
-
-function navigate(page){
-  S.page=page; renderNav(); renderBottomNav();
-  const p=document.getElementById('page');
-  p.innerHTML=''; p.className='fade-up'; void p.offsetWidth;
-  ({dashboard:renderDashboard,competitors:renderCompetitors,feed:renderFeed,
-    watchlist:renderWatchlist,swipefile:renderSwipeFile,ideas:renderIdeas,
-    insights:renderInsights,targets:renderTargets,channel:renderChannel,
-    niche:renderNiche})[page]?.();
-  document.getElementById('main').scrollTo(0,0);
-}
-
-function toggleSidebar(){
-  S.sidebarCollapsed=!S.sidebarCollapsed;
-  document.getElementById('sidebar').classList.toggle('collapsed',S.sidebarCollapsed);
-  document.getElementById('collapse-label').textContent=S.sidebarCollapsed?'→':'← Collapse';
-}
+function renderNav(){document.getElementById('nav').innerHTML=NAV_ITEMS.map(n=>`<button class="nav-item ${S.page===n.id?'active':''}" onclick="navigate('${n.id}')">${IC[n.id]||IC.dashboard}<span style="overflow:hidden;">${n.label}</span></button>`).join('');}
+function renderBotNav(){document.getElementById('bottom-nav').innerHTML=BOT_NAV.map(n=>`<button class="bnav-item ${S.page===n.id?'active':''}" onclick="navigate('${n.id}')">${IC[n.id]||IC.dashboard}<span class="bnav-label">${n.label}</span></button>`).join('');}
+function navigate(p){S.page=p;renderNav();renderBotNav();const pg=document.getElementById('page');pg.innerHTML='';pg.className='fade-up';void pg.offsetWidth;({dashboard:renderDash,competitors:renderComp,feed:renderFeed,watchlist:renderWL,swipefile:renderSF,ideas:renderIdeas,insights:renderInsights,targets:renderTargets,channel:renderChannel,niche:renderNiche})[p]?.();document.getElementById('main').scrollTo(0,0);}
+function toggleSB(){S.sbCollapsed=!S.sbCollapsed;document.getElementById('sidebar').classList.toggle('collapsed',S.sbCollapsed);document.getElementById('col-lbl').textContent=S.sbCollapsed?'→':'← Collapse';}
 
 // ─── Dashboard ────────────────────────────────────────────────────────────────
-function renderDashboard(){
-  const {competitors,watchlist,myStats,swipeFile,targets,targetProgress}=S;
-  const totalV=competitors.reduce((a,c)=>a+(parseInt(c.videoCount)||0),0);
+function renderDash(){
+  const{competitors:comp,watchlist:wl,myStats:ms,swipeFile:sf,targets:tg,targetProgress:tp}=S;
   const notifs=[];
-  notifs.push({color:'var(--pl)',text:'Welcome back to CreatorLens',sub:'Your intelligence tool is ready'});
-  if(myStats)notifs.push({color:'var(--green)',text:`${MY_CHANNEL} · ${fmtN(myStats.subscriberCount)} subscribers`,sub:`${fmtN(myStats.viewCount)} total views · ${fmtN(myStats.videoCount)} videos`});
-  if(!competitors.length)notifs.push({color:'var(--yellow)',text:'No competitors tracked yet',sub:'Add channels in Competitors'});
-  else notifs.push({color:'var(--blue)',text:`${competitors.length} competitor${competitors.length!==1?'s':''} tracked`,sub:competitors.map(c=>c.title).join(', ')});
-  if(watchlist.length)notifs.push({color:'var(--yellow)',text:`${watchlist.length} video${watchlist.length!==1?'s':''} in Watchlist`,sub:'Review and analyse them'});
-  if(swipeFile.length)notifs.push({color:'var(--green)',text:`${swipeFile.length} items in Swipe File`,sub:'Your content weapon is growing'});
-  const incomplete=targets.filter(t=>(targetProgress[t.id]||0)<t.goal);
-  if(incomplete.length)notifs.push({color:'var(--red)',text:`${incomplete.length} weekly target${incomplete.length!==1?'s':''} in progress`,sub:'Head to Targets'});
-
+  notifs.push({c:'var(--pl)',t:'Welcome back to CreatorLens',s:'Your intelligence tool is ready'});
+  if(ms)notifs.push({c:'var(--green)',t:`${MY_CHANNEL} · ${fN(ms.subscriberCount)} subscribers`,s:`${fN(ms.viewCount)} total views · ${fN(ms.videoCount)} videos`});
+  if(!comp.length)notifs.push({c:'var(--yellow)',t:'No competitors tracked yet',s:'Add channels in Competitors'});
+  else notifs.push({c:'var(--blue)',t:`${comp.length} competitor${comp.length!==1?'s':''} tracked`,s:comp.map(c=>c.title).join(', ')});
+  if(wl.length)notifs.push({c:'var(--yellow)',t:`${wl.length} video${wl.length!==1?'s':''} in Watchlist`,s:'Review and analyse them'});
+  if(sf.length)notifs.push({c:'var(--green)',t:`${sf.length} items in Swipe File`,s:'Your content weapon is growing'});
+  const inc=tg.filter(t=>(tp[t.id]||0)<t.goal);
+  if(inc.length)notifs.push({c:'var(--red)',t:`${inc.length} weekly target${inc.length!==1?'s':''} in progress`,s:'Head to Targets'});
+  const totalV=comp.reduce((a,c)=>a+(parseInt(c.videoCount)||0),0);
   document.getElementById('page').innerHTML=`
-    <div class="row-between page-header">
-      <div><div class="page-title">Dashboard</div><div class="page-sub">Your content intelligence overview</div></div>
-      <div style="font-size:11px;color:var(--muted);">${new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}</div>
-    </div>
-    <div class="notif-panel">${notifs.map(n=>`<div class="notif-item"><div class="notif-dot" style="background:${n.color};"></div><div><div class="notif-text">${n.text}</div><div class="notif-sub">${n.sub}</div></div></div>`).join('')}</div>
+    <div class="row-b page-header"><div><div class="page-title">Dashboard</div><div class="page-sub">Content intelligence overview</div></div><div style="font-size:11px;color:var(--muted);">${new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}</div></div>
+    <div class="notif-panel">${notifs.map(n=>`<div class="notif-item"><div class="notif-dot" style="background:${n.c};"></div><div><div class="notif-txt">${n.t}</div><div class="notif-sub">${n.s}</div></div></div>`).join('')}</div>
     <div class="stats-row">
-      <div class="stat-card"><div class="stat-label">Competitors</div><div class="stat-value" style="color:var(--pl)">${competitors.length}</div><div class="stat-sub">Tracked</div></div>
-      <div class="stat-card"><div class="stat-label">Indexed</div><div class="stat-value">${fmtN(totalV)}</div><div class="stat-sub">Videos</div></div>
-      <div class="stat-card"><div class="stat-label">Watchlist</div><div class="stat-value" style="color:var(--yellow)">${watchlist.length}</div><div class="stat-sub">Saved</div></div>
-      ${myStats?`<div class="stat-card"><div class="stat-label">Subscribers</div><div class="stat-value" style="color:var(--green)">${fmtN(myStats.subscriberCount)}</div><div class="stat-sub">${MY_CHANNEL}</div></div>`:''}
+      <div class="stat-card"><div class="stat-label">Competitors</div><div class="stat-value" style="color:var(--pl)">${comp.length}</div></div>
+      <div class="stat-card"><div class="stat-label">Indexed</div><div class="stat-value">${fN(totalV)}</div><div class="stat-sub">Videos</div></div>
+      <div class="stat-card"><div class="stat-label">Watchlist</div><div class="stat-value" style="color:var(--yellow)">${wl.length}</div></div>
+      ${ms?`<div class="stat-card"><div class="stat-label">Subscribers</div><div class="stat-value" style="color:var(--green)">${fN(ms.subscriberCount)}</div><div class="stat-sub">${MY_CHANNEL}</div></div>`:''}
     </div>
-    ${myStats?`<div class="ch-banner">
-      <div class="row" style="gap:12px;margin-bottom:12px;">
-        ${S.myAvatar?`<img src="${S.myAvatar}" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--purple);">`:''}
-        <div class="pulse-dot"></div>
-        <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:600;">${MY_CHANNEL}</div>
-        ${tag('My Channel','#34d399')}
+    ${ms?`<div style="background:linear-gradient(135deg,var(--card),rgba(124,58,237,.08));border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:20px;">
+      <div class="row" style="gap:12px;margin-bottom:12px;">${S.myAvatar?`<img src="${S.myAvatar}" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--purple);">`:''}
+        <div class="pulse-dot"></div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:600;">${MY_CHANNEL}</div>${tag('My Channel','#34d399')}
       </div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;">
-        <div><div class="stat-label">SUBS</div><div style="font-family:'Syne';font-size:20px;font-weight:700;color:var(--green)">${fmtN(myStats.subscriberCount)}</div></div>
-        <div><div class="stat-label">VIEWS</div><div style="font-family:'Syne';font-size:20px;font-weight:700;">${fmtN(myStats.viewCount)}</div></div>
-        <div><div class="stat-label">VIDEOS</div><div style="font-family:'Syne';font-size:20px;font-weight:700;">${fmtN(myStats.videoCount)}</div></div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;">
+        <div><div class="stat-label">SUBS</div><div style="font-family:'Syne';font-size:20px;font-weight:700;color:var(--green)">${fN(ms.subscriberCount)}</div></div>
+        <div><div class="stat-label">VIEWS</div><div style="font-family:'Syne';font-size:20px;font-weight:700;">${fN(ms.viewCount)}</div></div>
+        <div><div class="stat-label">VIDEOS</div><div style="font-family:'Syne';font-size:20px;font-weight:700;">${fN(ms.videoCount)}</div></div>
       </div>
     </div>`:''}
-    <div class="row-between" style="margin-bottom:12px;">
-      <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:600;">Tracked Competitors</div>
-      <button class="btn btn-ghost btn-sm" onclick="navigate('competitors')">Manage →</button>
-    </div>
-    ${!competitors.length?`<div class="empty-state">No competitors yet. <span class="empty-link" onclick="navigate('competitors')">Add one →</span></div>`
-    :`<div class="col" style="gap:8px;">${competitors.slice(0,5).map(c=>`
-      <div class="comp-row">
-        <img class="comp-avatar" src="${c.thumbnail}" onerror="this.style.display='none'">
-        <div class="comp-info"><div class="comp-name">${c.title}</div><div class="comp-handle">${c.handle}</div><div class="comp-stats"><span>👥 ${fmtN(c.subscriberCount)}</span><span>🎬 ${fmtN(c.videoCount)}</span></div></div>
-        <button class="btn btn-ghost btn-sm" onclick="navigate('feed')">Feed →</button>
-      </div>`).join('')}</div>`}
-  `;
+    <div class="row-b" style="margin-bottom:12px;"><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:600;">Tracked Competitors</div><button class="btn btn-ghost btn-sm" onclick="navigate('competitors')">Manage →</button></div>
+    ${!comp.length?`<div class="empty-st">No competitors yet. <span class="empty-lnk" onclick="navigate('competitors')">Add one →</span></div>`:`<div class="col" style="gap:8px;">${comp.slice(0,5).map(c=>`<div class="comp-row"><img class="comp-av" src="${c.thumbnail}" onerror="this.style.display='none'"><div class="comp-info"><div class="comp-name">${c.title}</div><div class="comp-handle">${c.handle}</div><div class="comp-stats"><span>👥 ${fN(c.subscriberCount)}</span><span>🎬 ${fN(c.videoCount)}</span></div></div><button class="btn btn-ghost btn-sm" onclick="navigate('feed')">Feed →</button></div>`).join('')}</div>`}`;
 }
 
 // ─── Competitors ──────────────────────────────────────────────────────────────
-function renderCompetitors(){
-  document.getElementById('page').innerHTML=`
-    <div class="page-header"><div class="page-title">Competitors</div><div class="page-sub">Track and manage competitor channels</div></div>
-    <div class="card card-pad" style="margin-bottom:18px;">
-      <div style="font-size:13px;font-weight:500;margin-bottom:12px;">Add Channel</div>
-      <div class="row"><input type="text" id="comp-in" placeholder="@SalishMatter or @JordanMatter" style="flex:1;" onkeydown="if(event.key==='Enter')addComp()"><button class="btn btn-primary" id="add-comp-btn" onclick="addComp()">Add</button></div>
-      <div id="comp-err" class="error-msg" style="display:none;"></div>
-    </div>
-    <div id="comp-list">${renderCompList()}</div>`;
-}
-function renderCompList(){
-  if(!S.competitors.length)return`<div class="empty-state">No competitors added yet.</div>`;
-  return`<div class="col" style="gap:10px;">${S.competitors.map(c=>`
-    <div class="comp-row fade-up">
-      <img class="comp-avatar" src="${c.thumbnail}" onerror="this.style.display='none'">
-      <div class="comp-info">
-        <div class="comp-name">${c.title}</div>
-        <div class="comp-handle">${c.handle}</div>
-        <div class="comp-stats"><span>👥 ${fmtN(c.subscriberCount)}</span><span>🎬 ${fmtN(c.videoCount)}</span><span>👁 ${fmtN(c.viewCount)}</span></div>
-      </div>
-      <button class="btn btn-danger btn-sm" onclick="removeComp('${c.id}')">Remove</button>
-    </div>`).join('')}</div>`;
-}
-async function addComp(){
-  const inp=document.getElementById('comp-in'),err=document.getElementById('comp-err'),btn=document.getElementById('add-comp-btn');
-  const h=inp.value.trim();if(!h)return;
-  btn.disabled=true;btn.textContent='Adding...';err.style.display='none';
-  try{
-    const data=await ytF(`channels?part=snippet,statistics&forHandle=${h.replace('@','')}`);
-    if(!data.items?.length)throw new Error('Channel not found.');
-    const ch=data.items[0];
-    const c={id:ch.id,title:ch.snippet.title,handle:'@'+h.replace('@',''),thumbnail:ch.snippet.thumbnails?.medium?.url||ch.snippet.thumbnails?.default?.url||'',subscriberCount:ch.statistics.subscriberCount,videoCount:ch.statistics.videoCount,viewCount:ch.statistics.viewCount};
-    if(!S.competitors.find(x=>x.id===c.id)){S.competitors.push(c);persist();}
-    inp.value='';document.getElementById('comp-list').innerHTML=renderCompList();
-  }catch(e){err.textContent=e.message;err.style.display='block';}
-  btn.disabled=false;btn.textContent='Add';
-}
-function removeComp(id){S.competitors=S.competitors.filter(c=>c.id!==id);persist();document.getElementById('comp-list').innerHTML=renderCompList();}
+function renderComp(){document.getElementById('page').innerHTML=`<div class="page-header"><div class="page-title">Competitors</div><div class="page-sub">Track and manage channels</div></div><div class="card card-pad" style="margin-bottom:16px;"><div style="font-size:13px;font-weight:500;margin-bottom:12px;">Add Channel</div><div class="row"><input type="text" id="ci" placeholder="@SalishMatter" style="flex:1;" onkeydown="if(event.key==='Enter')addComp()"><button class="btn btn-primary" id="add-btn" onclick="addComp()">Add</button></div><div id="c-err" class="error-msg" style="display:none;"></div></div><div id="c-list">${compList()}</div>`;}
+function compList(){if(!S.competitors.length)return`<div class="empty-st">No competitors yet.</div>`;return`<div class="col" style="gap:10px;">${S.competitors.map(c=>`<div class="comp-row fade-up"><img class="comp-av" src="${c.thumbnail}" onerror="this.style.display='none'"><div class="comp-info"><div class="comp-name">${c.title}</div><div class="comp-handle">${c.handle}</div><div class="comp-stats"><span>👥 ${fN(c.subscriberCount)}</span><span>🎬 ${fN(c.videoCount)}</span><span>👁 ${fN(c.viewCount)}</span></div></div><button class="btn btn-danger btn-sm" onclick="rmComp('${c.id}')">Remove</button></div>`).join('')}</div>`;}
+async function addComp(){const inp=document.getElementById('ci'),err=document.getElementById('c-err'),btn=document.getElementById('add-btn');const h=inp.value.trim();if(!h)return;btn.disabled=true;btn.textContent='Adding...';err.style.display='none';try{const d=await ytF(`channels?part=snippet,statistics&forHandle=${h.replace('@','')}`);if(!d.items?.length)throw new Error('Channel not found.');const ch=d.items[0];const c={id:ch.id,title:ch.snippet.title,handle:'@'+h.replace('@',''),thumbnail:ch.snippet.thumbnails?.medium?.url||ch.snippet.thumbnails?.default?.url||'',subscriberCount:ch.statistics.subscriberCount,videoCount:ch.statistics.videoCount,viewCount:ch.statistics.viewCount};if(!S.competitors.find(x=>x.id===c.id)){S.competitors.push(c);persist();}inp.value='';document.getElementById('c-list').innerHTML=compList();}catch(e){err.textContent=e.message;err.style.display='block';}btn.disabled=false;btn.textContent='Add';}
+function rmComp(id){S.competitors=S.competitors.filter(c=>c.id!==id);persist();document.getElementById('c-list').innerHTML=compList();}
 
 // ─── Video Feed ───────────────────────────────────────────────────────────────
 let feedVids=[];
 function renderFeed(){
   document.getElementById('page').innerHTML=`
-    <div class="row-between page-header">
-      <div><div class="page-title">Video Feed</div><div class="page-sub">Tap to watch · Swipe in player</div></div>
-      <div class="filter-bar">
-        <select id="feed-ch" style="width:auto;"><option value="all">All Channels</option>${S.competitors.map(c=>`<option value="${c.id}">${c.title}</option>`).join('')}</select>
-        <select id="feed-sort" style="width:auto;"><option value="date">Latest</option><option value="viewCount">Top Views</option></select>
+    <div class="row-b page-header">
+      <div><div class="page-title">Video Feed</div><div class="page-sub">Tap card to enter Shorts player</div></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <select id="f-ch" style="width:auto;"><option value="all">All Channels</option>${S.competitors.map(c=>`<option value="${c.id}">${c.title}</option>`).join('')}</select>
+        <select id="f-sort" style="width:auto;"><option value="date">Latest</option><option value="viewCount">Top Views</option></select>
         <button class="btn btn-primary btn-sm" onclick="loadFeed()">Load</button>
       </div>
     </div>
-    <div id="feed-out">${!S.competitors.length?`<div class="empty-state">Add competitors first.</div>`:`<div style="display:flex;flex-direction:column;gap:12px;">${Array(5).fill(0).map(()=>`<div class="skeleton" style="height:100px;border-radius:14px;"></div>`).join('')}</div>`}</div>`;
+    <div id="f-out">${!S.competitors.length?`<div class="empty-st">Add competitors first.</div>`:`<div class="col" style="gap:10px;">${skRow()}</div>`}</div>`;
   if(S.competitors.length)loadFeed();
 }
 async function loadFeed(){
-  const chId=document.getElementById('feed-ch')?.value||'all';
-  const sort=document.getElementById('feed-sort')?.value||'date';
-  const out=document.getElementById('feed-out');if(!out)return;
-  out.innerHTML=`<div style="display:flex;flex-direction:column;gap:12px;">${Array(5).fill(0).map(()=>`<div class="skeleton" style="height:100px;border-radius:14px;"></div>`).join('')}</div>`;
+  const chId=document.getElementById('f-ch')?.value||'all',sort=document.getElementById('f-sort')?.value||'date',out=document.getElementById('f-out');
+  if(!out)return;
+  out.innerHTML=`<div class="col" style="gap:10px;">${skRow()}</div>`;
   try{
     const chs=chId==='all'?S.competitors:S.competitors.filter(c=>c.id===chId);
     feedVids=[];
@@ -593,89 +486,107 @@ async function loadFeed(){
       const det=await ytF(`videos?part=statistics,snippet&id=${ids}`);
       feedVids.push(...(det.items||[]));
     }
-    out.innerHTML=feedVids.length?`<div class="feed-list">${feedVids.map((v,i)=>feedCardHTML(v,i)).join('')}</div>`:`<div class="empty-state">No videos found.</div>`;
-  }catch(e){out.innerHTML=`<div class="empty-state" style="color:var(--red)">${e.message}</div>`;}
+    out.innerHTML=feedVids.length?`<div class="feed-list">${feedVids.map((v,i)=>feedCard(v,i)).join('')}</div>`:`<div class="empty-st">No videos found.</div>`;
+  }catch(e){out.innerHTML=`<div class="empty-st" style="color:var(--red)">${e.message}</div>`;}
 }
-function feedCardHTML(v,idx){
+function feedCard(v,idx){
   const vid=v.id?.videoId||v.id;
-  const views=fmtN(v.statistics?.viewCount),likes=fmtN(v.statistics?.likeCount),comments=fmtN(v.statistics?.commentCount);
+  const views=fN(v.statistics?.viewCount),likes=fN(v.statistics?.likeCount),comments=fN(v.statistics?.commentCount);
   const thumb=v.snippet?.thumbnails?.medium?.url||v.snippet?.thumbnails?.default?.url||'';
   const title=(v.snippet?.title||'').replace(/'/g,"&#39;").replace(/"/g,'&quot;');
   const saved=S.watchlist.some(w=>(w.id?.videoId||w.id)===vid);
   return`<div class="feed-card fade-up">
-    <div class="feed-card-inner">
-      <div class="feed-thumb-wrap" onclick="openSP(${idx})" style="width:140px;min-height:80px;">
-        <img src="${thumb}" alt="" loading="lazy" style="width:100%;height:100%;min-height:80px;object-fit:cover;display:block;">
-        <div class="play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+    <div class="feed-inner">
+      <div class="feed-thumb" onclick="openSP(${idx})">
+        <img src="${thumb}" alt="" loading="lazy">
+        <div class="feed-play"><div class="feed-play-circle"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        <div class="feed-date-badge">${ago(v.snippet?.publishedAt)}</div>
       </div>
       <div class="feed-info">
         <div class="feed-title">${v.snippet?.title||''}</div>
         <div class="feed-meta">
-          <div class="feed-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>${views}</div>
-          <div class="feed-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"/></svg>${likes}</div>
-          <div class="feed-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>${comments}</div>
-          <span class="feed-channel-tag">${v.snippet?.channelTitle||''}</span>
+          <div class="feed-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>${views}</div>
+          <div class="feed-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"/></svg>${likes}</div>
+          <div class="feed-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>${comments}</div>
+          <span class="feed-ch-pill">${v.snippet?.channelTitle||''}</span>
         </div>
         <div class="feed-actions">
           <button class="btn btn-primary btn-sm" onclick="openSP(${idx})">▶ Watch</button>
-          <button class="btn btn-ghost btn-sm" id="sv-${vid}" style="color:${saved?'var(--pl)':'var(--muted)'}" onclick="toggleWL(event,'${vid}')">${saved?'★':'☆'}</button>
-          <span style="font-size:10px;color:var(--muted);margin-left:auto;">${ago(v.snippet?.publishedAt)}</span>
+          <button class="btn btn-ghost btn-sm" id="sv-${vid}" style="color:${saved?'var(--pl)':'var(--muted)'}" onclick="togWL(event,'${vid}')">${saved?'★':'☆'}</button>
         </div>
       </div>
     </div>
   </div>`;
 }
 
-// ─── Shorts Player ────────────────────────────────────────────────────────────
-let spIdx=0,spVids=[],spAIOpen=false;
-function openSP(idx){spVids=feedVids;spIdx=idx;spAIOpen=false;document.getElementById('sp-ai-panel').classList.remove('open');document.getElementById('shorts-player').classList.add('open');document.body.style.overflow='hidden';spRender();}
-function closeSP(){document.getElementById('shorts-player').classList.remove('open');document.body.style.overflow='';['sp-prev','sp-curr','sp-next'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML='';});}
+// ─── Shorts Player (Fixed blank screen) ───────────────────────────────────────
+let spIdx=0, spVids=[], spAIOpen=false;
+let spTY=null;
+
+function openSP(idx){
+  spVids=feedVids; spIdx=idx; spAIOpen=false;
+  document.getElementById('sp-ai-panel').classList.remove('open');
+  document.getElementById('sp').classList.add('open');
+  document.body.style.overflow='hidden';
+  spRender();
+}
+function closeSP(){
+  document.getElementById('sp').classList.remove('open');
+  document.body.style.overflow='';
+  const iframe=document.getElementById('sp-iframe');
+  iframe.style.opacity='0';
+  iframe.src='';
+  document.getElementById('sp-loading').style.display='flex';
+}
 function spRender(){
-  const v=spVids[spIdx];if(!v)return;
+  const v=spVids[spIdx]; if(!v)return;
   const vid=v.id?.videoId||v.id;
-  document.getElementById('sp-channel').textContent=v.snippet?.channelTitle||'';
+  document.getElementById('sp-ch').textContent=v.snippet?.channelTitle||'';
   document.getElementById('sp-title').textContent=v.snippet?.title||'';
-  document.getElementById('sp-stats').textContent=`👁 ${fmtN(v.statistics?.viewCount)}  ·  👍 ${fmtN(v.statistics?.likeCount)}`;
-  document.getElementById('sp-counter').textContent=`${spIdx+1} / ${spVids.length}`;
+  document.getElementById('sp-stats').textContent=`👁 ${fN(v.statistics?.viewCount)}  ·  👍 ${fN(v.statistics?.likeCount)}`;
+  document.getElementById('sp-ctr').textContent=`${spIdx+1} / ${spVids.length}`;
   document.getElementById('sp-prev-btn').disabled=spIdx===0;
   document.getElementById('sp-next-btn').disabled=spIdx===spVids.length-1;
-  document.getElementById('sp-progress').style.width=`${((spIdx+1)/spVids.length)*100}%`;
+  document.getElementById('sp-prog').style.width=`${((spIdx+1)/spVids.length)*100}%`;
   const saved=S.watchlist.some(w=>(w.id?.videoId||w.id)===vid);
-  const sb=document.getElementById('sp-save-btn');
-  sb.classList.toggle('saved',saved);
-  document.getElementById('sp-curr').innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1" style="width:100%;height:100%;border:none;" allow="autoplay;encrypted-media" allowfullscreen></iframe>`;
-  const prev=document.getElementById('sp-prev');prev.style.transform='translateY(-100%)';
-  if(spIdx>0){const pv=spVids[spIdx-1];const pvid=pv.id?.videoId||pv.id;prev.innerHTML=`<iframe src="https://www.youtube.com/embed/${pvid}?autoplay=0" style="width:100%;height:100%;border:none;" allow="autoplay;encrypted-media"></iframe>`;}else prev.innerHTML='';
-  const next=document.getElementById('sp-next');next.style.transform='translateY(100%)';
-  if(spIdx<spVids.length-1){const nv=spVids[spIdx+1];const nvid=nv.id?.videoId||nv.id;next.innerHTML=`<iframe src="https://www.youtube.com/embed/${nvid}?autoplay=0" style="width:100%;height:100%;border:none;" allow="autoplay;encrypted-media"></iframe>`;}else next.innerHTML='';
+  document.getElementById('sp-save-btn').classList.toggle('on',saved);
+  // Show loading, hide iframe, then set src
+  const iframe=document.getElementById('sp-iframe');
+  const loading=document.getElementById('sp-loading');
+  iframe.style.opacity='0';
+  loading.style.display='flex';
+  iframe.onload=()=>{iframe.style.opacity='1';if(loading)loading.style.display='none';};
+  iframe.src=`https://www.youtube.com/embed/${vid}?autoplay=1&rel=0`;
   document.getElementById('sp-ai-result').innerHTML=`<div style="color:var(--muted);font-size:13px;">Tap a button for AI insights</div>`;
 }
 function spNav(dir){
-  const ni=spIdx+dir;if(ni<0||ni>=spVids.length)return;
-  const curr=document.getElementById('sp-curr'),prev=document.getElementById('sp-prev'),next=document.getElementById('sp-next');
-  if(dir===1){curr.style.transition='transform .35s cubic-bezier(.4,0,.2,1)';next.style.transition='transform .35s cubic-bezier(.4,0,.2,1)';curr.style.transform='translateY(-100%)';next.style.transform='translateY(0)';}
-  else{curr.style.transition='transform .35s cubic-bezier(.4,0,.2,1)';prev.style.transition='transform .35s cubic-bezier(.4,0,.2,1)';curr.style.transform='translateY(100%)';prev.style.transform='translateY(0)';}
-  setTimeout(()=>{curr.innerHTML='';['sp-prev','sp-curr','sp-next'].forEach(id=>{const el=document.getElementById(id);el.style.transition='none';});spIdx=ni;spRender();},350);
+  const ni=spIdx+dir;
+  if(ni<0||ni>=spVids.length)return;
+  // Stop current audio immediately
+  const iframe=document.getElementById('sp-iframe');
+  const loading=document.getElementById('sp-loading');
+  iframe.src='';
+  iframe.style.opacity='0';
+  loading.style.display='flex';
+  spIdx=ni;
+  spRender();
 }
-let spTouchY=null;
-document.getElementById('sp-container').addEventListener('touchstart',e=>{spTouchY=e.touches[0].clientY;},{passive:true});
-document.getElementById('sp-container').addEventListener('touchend',e=>{if(spTouchY===null)return;const diff=spTouchY-e.changedTouches[0].clientY;if(Math.abs(diff)>60)spNav(diff>0?1:-1);spTouchY=null;},{passive:true});
-function toggleAIPanel(){spAIOpen=!spAIOpen;document.getElementById('sp-ai-panel').classList.toggle('open',spAIOpen);}
-function spSave(){const v=spVids[spIdx];if(!v)return;const vid=v.id?.videoId||v.id;const ex=S.watchlist.find(w=>(w.id?.videoId||w.id)===vid);if(ex)S.watchlist=S.watchlist.filter(w=>(w.id?.videoId||w.id)!==vid);else S.watchlist.push(v);persist();const sb=document.getElementById('sp-save-btn');sb.classList.toggle('saved',S.watchlist.some(w=>(w.id?.videoId||w.id)===vid));}
-function spAddSwipe(){const v=spVids[spIdx];if(!v)return;S.swipeFile.unshift({type:'Note',content:`Video: ${v.snippet?.title||''}`,date:new Date().toISOString(),source:v.snippet?.channelTitle||''});persist();const btn=document.querySelector('.sp-action-btn[onclick="spAddSwipe()"]');if(btn){const orig=btn.innerHTML;btn.innerHTML='✅';setTimeout(()=>{btn.innerHTML=orig;},1500);}}
+function toggleSPAI(){spAIOpen=!spAIOpen;document.getElementById('sp-ai-panel').classList.toggle('open',spAIOpen);}
+function spSave(){const v=spVids[spIdx];if(!v)return;const vid=v.id?.videoId||v.id;const ex=S.watchlist.find(w=>(w.id?.videoId||w.id)===vid);if(ex)S.watchlist=S.watchlist.filter(w=>(w.id?.videoId||w.id)!==vid);else S.watchlist.push(v);persist();document.getElementById('sp-save-btn').classList.toggle('on',S.watchlist.some(w=>(w.id?.videoId||w.id)===vid));}
+function spSwipe(){const v=spVids[spIdx];if(!v)return;S.swipeFile.unshift({type:'Note',content:`Video: ${v.snippet?.title||''}`,date:new Date().toISOString(),source:v.snippet?.channelTitle||''});persist();const btn=document.querySelector('.sp-act-btn[onclick="spSwipe()"]');if(btn){const o=btn.innerHTML;btn.textContent='✅';setTimeout(()=>{btn.innerHTML=o;},1500);}}
 async function spAI(type){
   const v=spVids[spIdx];if(!v)return;
-  const title=v.snippet?.title||'',views=fmtN(v.statistics?.viewCount),likes=fmtN(v.statistics?.likeCount);
+  const title=v.snippet?.title||'',views=fN(v.statistics?.viewCount),likes=fN(v.statistics?.likeCount);
   const r=document.getElementById('sp-ai-result');
-  const btns=document.querySelectorAll('.ai-panel-grid .btn');
+  const btns=document.querySelectorAll('.ai-grid .btn');
   btns.forEach(b=>b.disabled=true);
   r.innerHTML=`<div class="col" style="gap:5px;">${[85,60,90,50,75].map(w=>`<div class="skeleton" style="height:12px;width:${w}%;"></div>`).join('')}</div>`;
   try{
     let p='';
-    if(type==='steal')p=`Analyse this video:\nTitle:"${title}" Views:${views} Likes:${likes}\n1.Hook Template\n2.Story Structure beat by beat\n3.Rewrite for Matterverse (Salish/Jordan Matter niche, teens 12-17)\n4.Why it works`;
-    if(type==='hook')p=`Score this hook 1-10 and suggest 2 improvements.\nTitle:"${title}" Views:${views}`;
-    if(type==='format')p=`Identify the format, why it works, how to replicate.\nTitle:"${title}" Views:${views}`;
-    if(type==='ideas')p=`Generate 5 ideas for Matterverse (Salish/Jordan Matter, teens 12-17) inspired by:\nTitle:"${title}" Views:${views}`;
+    if(type==='steal')p=`Title:"${title}" Views:${views}\n1.Hook Template\n2.Story Structure beat by beat\n3.Rewrite for Matterverse (Salish/Jordan Matter, teens 12-17)\n4.Why it works`;
+    if(type==='hook')p=`Score hook 1-10, 2 improvements.\nTitle:"${title}" Views:${views}`;
+    if(type==='format')p=`Identify format, why it works, how to replicate.\nTitle:"${title}"`;
+    if(type==='ideas')p=`5 ideas for Matterverse (Salish/Jordan Matter, teens 12-17) from:\nTitle:"${title}" Views:${views}`;
     const res=await clF(p);
     r.innerHTML=`<div class="fade-up" style="white-space:pre-wrap;">${res}</div>`;
   }catch(e){r.innerHTML=`<div style="color:var(--red);font-size:12px;">${e.message}</div>`;}
@@ -683,533 +594,405 @@ async function spAI(type){
 }
 
 // ─── Watchlist ────────────────────────────────────────────────────────────────
-function renderWatchlist(){
-  document.getElementById('page').innerHTML=`
-    <div class="row-between page-header"><div><div class="page-title">Watchlist</div><div class="page-sub">${S.watchlist.length} saved</div></div>${S.watchlist.length?`<button class="btn btn-danger btn-sm" onclick="clearWL()">Clear All</button>`:''}</div>
-    ${!S.watchlist.length?`<div class="empty-state">Star videos in the feed to save them here.</div>`:`<div class="feed-list">${S.watchlist.map((v,i)=>feedCardHTML(v,i)).join('')}</div>`}`;
-}
-function toggleWL(e,vid){e.stopPropagation();const ex=S.watchlist.find(w=>(w.id?.videoId||w.id)===vid);if(ex)S.watchlist=S.watchlist.filter(w=>(w.id?.videoId||w.id)!==vid);else{const v=feedVids.find(x=>(x.id?.videoId||x.id)===vid);if(v)S.watchlist.push(v);}persist();const btn=document.getElementById(`sv-${vid}`);if(btn){const s=S.watchlist.some(w=>(w.id?.videoId||w.id)===vid);btn.textContent=s?'★':'☆';btn.style.color=s?'var(--pl)':'var(--muted)';}}
-function clearWL(){S.watchlist=[];persist();renderWatchlist();}
+function renderWL(){document.getElementById('page').innerHTML=`<div class="row-b page-header"><div><div class="page-title">Watchlist</div><div class="page-sub">${S.watchlist.length} saved</div></div>${S.watchlist.length?`<button class="btn btn-danger btn-sm" onclick="clrWL()">Clear</button>`:''}</div>${!S.watchlist.length?`<div class="empty-st">Star videos in the feed.</div>`:`<div class="feed-list">${S.watchlist.map((v,i)=>feedCard(v,i)).join('')}</div>`}`;}
+function togWL(e,vid){e.stopPropagation();const ex=S.watchlist.find(w=>(w.id?.videoId||w.id)===vid);if(ex)S.watchlist=S.watchlist.filter(w=>(w.id?.videoId||w.id)!==vid);else{const v=feedVids.find(x=>(x.id?.videoId||x.id)===vid);if(v)S.watchlist.push(v);}persist();const btn=document.getElementById(`sv-${vid}`);if(btn){const s=S.watchlist.some(w=>(w.id?.videoId||w.id)===vid);btn.textContent=s?'★':'☆';btn.style.color=s?'var(--pl)':'var(--muted)';}}
+function clrWL(){S.watchlist=[];persist();renderWL();}
 
 // ─── Swipe File ───────────────────────────────────────────────────────────────
 const STYPES=['Hook','Title','Format','Caption','Idea','Note'];
-function renderSwipeFile(){
-  const af=window._sf||'All',types=['All',...STYPES],filtered=af==='All'?S.swipeFile:S.swipeFile.filter(s=>s.type===af);
-  document.getElementById('page').innerHTML=`
-    <div class="row-between page-header"><div><div class="page-title">Swipe File</div><div class="page-sub">${S.swipeFile.length} items</div></div><button class="btn btn-primary btn-sm" onclick="showSF()">+ Add</button></div>
-    <div id="sf-form" style="display:none;" class="card card-pad" style="margin-bottom:16px;">
-      <div class="row" style="margin-bottom:10px;"><select id="sf-type" style="width:auto;flex-shrink:0;">${STYPES.map(t=>`<option>${t}</option>`).join('')}</select><input type="text" id="sf-content" placeholder="Paste hook, title, or idea..." style="flex:1;"></div>
-      <div class="row"><button class="btn btn-primary btn-sm" onclick="addSF()">Save</button><button class="btn btn-ghost btn-sm" onclick="document.getElementById('sf-form').style.display='none'">Cancel</button></div>
-    </div>
-    <div class="tab-bar" style="overflow-x:auto;white-space:nowrap;">${types.map(t=>`<button class="tab-btn ${af===t?'active':''}" onclick="window._sf='${t}';renderSwipeFile();">${t}</button>`).join('')}</div>
-    ${!filtered.length?`<div class="empty-state">No items yet.</div>`:`<div class="col" style="gap:10px;">${filtered.map((s,i)=>`<div class="swipe-card fade-up"><div class="row-between" style="margin-bottom:8px;"><div class="row" style="gap:7px;">${tag(s.type,s.type==='Hook'?'#f87171':s.type==='Title'?'#fbbf24':s.type==='Format'?'#60a5fa':s.type==='Idea'?'#34d399':'#a78bfa')}<span style="font-size:11px;color:var(--muted);">${new Date(s.date).toLocaleDateString()}</span></div><button class="btn btn-danger btn-sm" onclick="rmSF(${S.swipeFile.indexOf(s)})">×</button></div><div style="font-size:13px;line-height:1.6;">${s.content}</div>${s.source?`<div style="font-size:11px;color:var(--muted);margin-top:5px;">From: ${s.source}</div>`:''}</div>`).join('')}</div>`}`;
-}
+function renderSF(){const af=window._sf||'All',types=['All',...STYPES],fil=af==='All'?S.swipeFile:S.swipeFile.filter(s=>s.type===af);document.getElementById('page').innerHTML=`<div class="row-b page-header"><div><div class="page-title">Swipe File</div><div class="page-sub">${S.swipeFile.length} items</div></div><button class="btn btn-primary btn-sm" onclick="showSF()">+ Add</button></div><div id="sf-form" style="display:none;margin-bottom:14px;" class="card card-pad"><div class="row" style="margin-bottom:10px;"><select id="sf-t" style="width:auto;flex-shrink:0;">${STYPES.map(t=>`<option>${t}</option>`).join('')}</select><input type="text" id="sf-c" placeholder="Paste content..." style="flex:1;"></div><div class="row"><button class="btn btn-primary btn-sm" onclick="addSF()">Save</button><button class="btn btn-ghost btn-sm" onclick="document.getElementById('sf-form').style.display='none'">Cancel</button></div></div><div class="tab-bar" style="overflow-x:auto;">${types.map(t=>`<button class="tab-btn ${af===t?'active':''}" onclick="window._sf='${t}';renderSF();">${t}</button>`).join('')}</div>${!fil.length?`<div class="empty-st">No items yet.</div>`:`<div class="col" style="gap:10px;">${fil.map((s)=>`<div class="swipe-card fade-up"><div class="row-b" style="margin-bottom:7px;"><div class="row" style="gap:7px;">${tag(s.type,s.type==='Hook'?'#f87171':s.type==='Title'?'#fbbf24':s.type==='Format'?'#60a5fa':s.type==='Idea'?'#34d399':'#a78bfa')}<span style="font-size:11px;color:var(--muted);">${new Date(s.date).toLocaleDateString()}</span></div><button class="btn btn-danger btn-sm" onclick="rmSF(${S.swipeFile.indexOf(s)})">×</button></div><div style="font-size:13px;line-height:1.6;">${s.content}</div>${s.source?`<div style="font-size:11px;color:var(--muted);margin-top:4px;">From: ${s.source}</div>`:''}</div>`).join('')}</div>`}`;}
 function showSF(){const f=document.getElementById('sf-form');f.style.display=f.style.display==='none'?'block':'none';}
-function addSF(){const t=document.getElementById('sf-type').value,c=document.getElementById('sf-content').value.trim();if(!c)return;S.swipeFile.unshift({type:t,content:c,date:new Date().toISOString(),source:''});persist();renderSwipeFile();}
-function rmSF(i){S.swipeFile.splice(i,1);persist();renderSwipeFile();}
-function saveNote(){const n=document.getElementById('mod-note').value.trim();if(!n||!S.currentVideo)return;S.swipeFile.unshift({type:'Note',content:n,date:new Date().toISOString(),source:S.currentVideo.title});persist();const btn=event.target;btn.textContent='✅ Saved!';btn.style.color='var(--green)';setTimeout(()=>{btn.textContent='💾 Save to Swipe File';btn.style.color='';},2000);}
+function addSF(){const t=document.getElementById('sf-t').value,c=document.getElementById('sf-c').value.trim();if(!c)return;S.swipeFile.unshift({type:t,content:c,date:new Date().toISOString(),source:''});persist();renderSF();}
+function rmSF(i){S.swipeFile.splice(i,1);persist();renderSF();}
+function saveNote(){const n=document.getElementById('mod-note').value.trim();if(!n||!S.curVid)return;S.swipeFile.unshift({type:'Note',content:n,date:new Date().toISOString(),source:S.curVid.title});persist();const btn=event.target;btn.textContent='✅ Saved!';btn.style.color='var(--green)';setTimeout(()=>{btn.textContent='💾 Save to Swipe File';btn.style.color='';},2000);}
 
 // ─── Ideas ────────────────────────────────────────────────────────────────────
-function renderIdeas(){
-  document.getElementById('page').innerHTML=`
-    <div class="page-header"><div class="page-title">Idea Vault</div><div class="page-sub">AI-powered content ideas</div></div>
-    <div class="card card-pad" style="margin-bottom:18px;">
-      <div class="tab-bar"><button class="tab-btn active" id="it-remix" onclick="setIT('remix')">Remix</button><button class="tab-btn" id="it-twist" onclick="setIT('twist')">Twist</button><button class="tab-btn" id="it-upgrade" onclick="setIT('upgrade')">Upgrade</button></div>
-      <div class="row" style="margin-bottom:10px;"><input type="text" id="idea-topic" placeholder="Optional focus..." style="flex:1;"><button class="btn btn-primary" id="idea-btn" onclick="genIdeas()">Generate</button></div>
-      <div style="font-size:11px;color:var(--muted);">${S.competitors.length} competitors + ${S.swipeFile.length} swipe items as context</div>
-    </div>
-    <div id="ideas-out"></div>`;
-  window._it='remix';
-}
-function setIT(t){window._it=t;['remix','twist','upgrade'].forEach(x=>{const el=document.getElementById('it-'+x);if(el)el.className='tab-btn'+(x===t?' active':'');});}
-async function genIdeas(){
-  const btn=document.getElementById('idea-btn'),topic=document.getElementById('idea-topic').value.trim(),out=document.getElementById('ideas-out');
-  btn.disabled=true;btn.textContent='Generating...';
-  out.innerHTML=`<div class="col" style="gap:10px;">${Array(3).fill(0).map(()=>`<div class="skeleton" style="height:80px;border-radius:12px;"></div>`).join('')}</div>`;
-  try{
-    const tp={'remix':'REMIX existing viral formats with a fresh angle.','twist':'Add an unexpected TWIST to a familiar concept.','upgrade':'UPGRADE a mediocre idea with better hooks or emotional storytelling.'};
-    const p=`YouTube Shorts strategist for Matterverse (Salish/Jordan Matter niche, teens 12-17).\nCompetitors:${S.competitors.map(c=>c.title).join(',')||'Jordan Matter,Salish Matter'}\nSwipe file:${S.swipeFile.slice(0,5).map(s=>`${s.type}:${s.content}`).join('\n')||'None'}\n${topic?`Focus:${topic}`:''}\nTask:${tp[window._it||'remix']}\nGenerate 8 ideas. Return ONLY valid JSON:\n[{"title":"...","format":"...","reason":"...","time":"..."}]`;
-    const raw=await clF(p,'Return only a valid JSON array. No markdown.');
-    const ideas=JSON.parse(raw.replace(/```json|```/g,'').trim());
-    out.innerHTML=`<div class="col" style="gap:10px;">${ideas.map((idea,i)=>`<div class="idea-card fade-up" style="animation-delay:${i*35}ms"><div class="row" style="gap:8px;margin-bottom:8px;"><div class="idea-num">${i+1}</div><div style="font-size:13px;font-weight:500;line-height:1.4;flex:1;">${idea.title}</div></div><div class="row" style="gap:6px;flex-wrap:wrap;">${tag(idea.format)}${idea.time?tag('⏰ '+idea.time,'#fbbf24'):''}</div><div style="font-size:12px;color:var(--muted);margin-top:8px;">${idea.reason}</div><div style="margin-top:8px;"><button class="btn btn-ghost btn-sm" onclick="saveIdea('${idea.title.replace(/'/g,"\\'")}')">+ Swipe File</button></div></div>`).join('')}</div>`;
-  }catch(e){out.innerHTML=`<div class="empty-state" style="color:var(--red)">Failed. Try again.</div>`;}
-  btn.disabled=false;btn.textContent='Generate';
-}
-function saveIdea(t){S.swipeFile.unshift({type:'Idea',content:t,date:new Date().toISOString(),source:'Idea Vault'});persist();alert('Saved ✅');}
+function renderIdeas(){document.getElementById('page').innerHTML=`<div class="page-header"><div class="page-title">Idea Vault</div><div class="page-sub">AI-powered content ideas</div></div><div class="card card-pad" style="margin-bottom:16px;"><div class="tab-bar"><button class="tab-btn active" id="it-r" onclick="setIT('remix')">Remix</button><button class="tab-btn" id="it-t" onclick="setIT('twist')">Twist</button><button class="tab-btn" id="it-u" onclick="setIT('upgrade')">Upgrade</button></div><div class="row" style="margin-bottom:10px;"><input type="text" id="id-topic" placeholder="Optional focus..." style="flex:1;"><button class="btn btn-primary" id="id-btn" onclick="genIdeas()">Generate</button></div><div style="font-size:11px;color:var(--muted);">${S.competitors.length} competitors + ${S.swipeFile.length} swipe items as context</div></div><div id="id-out"></div>`;window._it='remix';}
+function setIT(t){window._it=t;['r','t','u'].forEach((x,i)=>{const el=document.getElementById('it-'+x);if(el)el.className='tab-btn'+(['remix','twist','upgrade'][i]===t?' active':'');});}
+async function genIdeas(){const btn=document.getElementById('id-btn'),topic=document.getElementById('id-topic').value.trim(),out=document.getElementById('id-out');btn.disabled=true;btn.textContent='Generating...';out.innerHTML=`<div class="col" style="gap:10px;">${Array(3).fill(0).map(()=>`<div class="skeleton" style="height:80px;border-radius:12px;"></div>`).join('')}</div>`;try{const tp={remix:'REMIX existing viral formats with a fresh angle.',twist:'Add an unexpected TWIST to a familiar concept.',upgrade:'UPGRADE a mediocre idea with emotional storytelling or better hooks.'};const p=`YouTube Shorts strategist for Matterverse (Salish/Jordan Matter niche, teens 12-17).\nCompetitors:${S.competitors.map(c=>c.title).join(',')||'Jordan Matter,Salish Matter'}\nSwipe file:${S.swipeFile.slice(0,5).map(s=>`${s.type}:${s.content}`).join('\n')||'None'}\n${topic?`Focus:${topic}`:''}\nTask:${tp[window._it||'remix']}\nGenerate 8 ideas. Return ONLY valid JSON:\n[{"title":"...","format":"...","reason":"...","time":"..."}]`;const raw=await clF(p,'Return only a valid JSON array. No markdown.');const ideas=JSON.parse(raw.replace(/```json|```/g,'').trim());out.innerHTML=`<div class="col" style="gap:10px;">${ideas.map((idea,i)=>`<div class="idea-card fade-up" style="animation-delay:${i*35}ms"><div class="row" style="gap:8px;margin-bottom:7px;"><div class="idea-num">${i+1}</div><div style="font-size:13px;font-weight:500;line-height:1.4;flex:1;">${idea.title}</div></div><div class="row" style="gap:5px;flex-wrap:wrap;">${tag(idea.format)}${idea.time?tag('⏰ '+idea.time,'#fbbf24'):''}</div><div style="font-size:12px;color:var(--muted);margin-top:7px;">${idea.reason}</div><div style="margin-top:8px;"><button class="btn btn-ghost btn-sm" onclick="svIdea('${idea.title.replace(/'/g,"\\'")}')">+ Swipe File</button></div></div>`).join('')}</div>`;}catch(e){out.innerHTML=`<div class="empty-st" style="color:var(--red)">Failed. Try again.</div>`;}btn.disabled=false;btn.textContent='Generate';}
+function svIdea(t){S.swipeFile.unshift({type:'Idea',content:t,date:new Date().toISOString(),source:'Idea Vault'});persist();alert('Saved ✅');}
 
 // ─── Insights ─────────────────────────────────────────────────────────────────
-function renderInsights(){
-  document.getElementById('page').innerHTML=`
-    <div class="page-header"><div class="page-title">Insights</div><div class="page-sub">AI strategic analysis</div></div>
-    <div class="card card-pad" style="margin-bottom:18px;"><textarea id="ins-notes" placeholder="Paste observations, patterns you're noticing..." style="height:110px;margin-bottom:12px;"></textarea><button class="btn btn-primary" id="ins-btn" onclick="genInsights()">Generate Insights</button></div>
-    <div id="ins-out"></div>`;
-}
-async function genInsights(){
-  const btn=document.getElementById('ins-btn'),notes=document.getElementById('ins-notes').value.trim(),out=document.getElementById('ins-out');
-  btn.disabled=true;btn.textContent='Analysing...';
-  out.innerHTML=`<div class="insight-block"><div class="col" style="gap:7px;">${[90,70,85,60,80].map(w=>`<div class="skeleton" style="height:13px;width:${w}%;"></div>`).join('')}</div></div>`;
-  try{
-    const p=`YouTube Shorts growth strategist for Matterverse (Salish/Jordan Matter niche, teens 12-17).\nCompetitors:${S.competitors.map(c=>c.title).join(',')||'None'}\nNotes:${notes||'Give general strategic insights for this niche.'}\n1.Key patterns\n2.What's working now\n3.3 action steps for Matterverse\n4.One contrarian insight\nBe direct and specific.`;
-    const res=await clF(p);
-    out.innerHTML=`<div class="insight-block fade-up"><div class="insight-meta"><div class="pulse-dot"></div><div class="insight-label">AI Strategic Analysis</div></div><div style="font-size:13px;line-height:1.8;white-space:pre-wrap;">${res}</div></div>`;
-  }catch(e){out.innerHTML=`<div class="empty-state" style="color:var(--red)">Failed.</div>`;}
-  btn.disabled=false;btn.textContent='Generate Insights';
-}
+function renderInsights(){document.getElementById('page').innerHTML=`<div class="page-header"><div class="page-title">Insights</div><div class="page-sub">AI strategic analysis</div></div><div class="card card-pad" style="margin-bottom:16px;"><textarea id="ins-n" placeholder="Paste observations..." style="height:100px;margin-bottom:12px;"></textarea><button class="btn btn-primary" id="ins-btn" onclick="genIns()">Generate Insights</button></div><div id="ins-out"></div>`;}
+async function genIns(){const btn=document.getElementById('ins-btn'),notes=document.getElementById('ins-n').value.trim(),out=document.getElementById('ins-out');btn.disabled=true;btn.textContent='Analysing...';out.innerHTML=`<div class="insight-block"><div class="col" style="gap:7px;">${[90,70,85,60,80].map(w=>`<div class="skeleton" style="height:13px;width:${w}%;"></div>`).join('')}</div></div>`;try{const p=`YouTube Shorts growth strategist for Matterverse (Salish/Jordan Matter niche, teens 12-17).\nCompetitors:${S.competitors.map(c=>c.title).join(',')||'None'}\nNotes:${notes||'Give general strategic insights for this niche.'}\n1.Key patterns\n2.What's working now\n3.3 action steps for Matterverse\n4.One contrarian insight\nBe direct.`;const res=await clF(p);out.innerHTML=`<div class="insight-block fade-up"><div class="ins-meta"><div class="pulse-dot"></div><div class="ins-lbl">AI Strategic Analysis</div></div><div style="font-size:13px;line-height:1.8;white-space:pre-wrap;">${res}</div></div>`;}catch(e){out.innerHTML=`<div class="empty-st" style="color:var(--red)">Failed.</div>`;}btn.disabled=false;btn.textContent='Generate Insights';}
 
 // ─── Targets ──────────────────────────────────────────────────────────────────
-const DEF_TARGETS=[{id:'t1',label:'Videos analysed',goal:10,unit:'videos'},{id:'t2',label:'Ideas generated',goal:3,unit:'sessions'},{id:'t3',label:'Swipe items saved',goal:15,unit:'items'},{id:'t4',label:'Competitors reviewed',goal:5,unit:'reviews'}];
-function renderTargets(){
-  if(!S.targets.length){S.targets=DEF_TARGETS;persist();}
-  document.getElementById('page').innerHTML=`
-    <div class="row-between page-header"><div><div class="page-title">Weekly Targets</div><div class="page-sub">Track your goals</div></div><button class="btn btn-ghost btn-sm" onclick="resetT()">↺ Reset</button></div>
-    <div class="col" style="gap:10px;margin-bottom:20px;">${S.targets.map(t=>{const p=S.targetProgress[t.id]||0,pct=Math.min(100,Math.round(p/t.goal*100)),done=p>=t.goal;return`<div class="target-card fade-up"><div style="width:36px;height:36px;border-radius:10px;background:${done?'rgba(52,211,153,.15)':'var(--pdim)'};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">${done?'✅':'🎯'}</div><div class="target-info"><div class="target-label">${t.label}</div><div class="target-bar-bg"><div class="target-bar" style="width:${pct}%;background:${done?'var(--green)':'var(--purple)'}"></div></div><div class="target-progress">${p}/${t.goal} ${t.unit} · ${pct}%</div></div><div class="row"><button class="btn btn-ghost btn-sm" onclick="updT('${t.id}',-1)" ${p<=0?'disabled':''}>−</button><button class="btn btn-primary btn-sm" onclick="updT('${t.id}',1)" ${done?'disabled':''}>+1</button></div></div>`;}).join('')}</div>
-    <div class="card card-pad"><div style="font-size:13px;font-weight:500;margin-bottom:12px;">Add Custom Target</div><div class="row"><input type="text" id="tl" placeholder="Label" style="flex:2;"><input type="number" id="tg" placeholder="Goal" style="flex:1;" min="1"><input type="text" id="tu" placeholder="Unit" style="flex:1.5;"><button class="btn btn-primary btn-sm" onclick="addT()">Add</button></div></div>`;
-}
+const DEF_TG=[{id:'t1',label:'Videos analysed',goal:10,unit:'videos'},{id:'t2',label:'Ideas generated',goal:3,unit:'sessions'},{id:'t3',label:'Swipe items saved',goal:15,unit:'items'},{id:'t4',label:'Competitors reviewed',goal:5,unit:'reviews'}];
+function renderTargets(){if(!S.targets.length){S.targets=DEF_TG;persist();}document.getElementById('page').innerHTML=`<div class="row-b page-header"><div><div class="page-title">Weekly Targets</div><div class="page-sub">Track your goals</div></div><button class="btn btn-ghost btn-sm" onclick="rstT()">↺ Reset</button></div><div class="col" style="gap:10px;margin-bottom:18px;">${S.targets.map(t=>{const p=S.targetProgress[t.id]||0,pct=Math.min(100,Math.round(p/t.goal*100)),done=p>=t.goal;return`<div class="target-card fade-up"><div style="width:34px;height:34px;border-radius:9px;background:${done?'rgba(52,211,153,.15)':'var(--pdim)'};display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">${done?'✅':'🎯'}</div><div class="target-info"><div class="target-lbl">${t.label}</div><div class="tbar-bg"><div class="tbar" style="width:${pct}%;background:${done?'var(--green)':'var(--purple)'}"></div></div><div class="tbar-prog">${p}/${t.goal} ${t.unit} · ${pct}%</div></div><div class="row"><button class="btn btn-ghost btn-sm" onclick="updT('${t.id}',-1)" ${p<=0?'disabled':''}>−</button><button class="btn btn-primary btn-sm" onclick="updT('${t.id}',1)" ${done?'disabled':''}>+1</button></div></div>`;}).join('')}</div><div class="card card-pad"><div style="font-size:13px;font-weight:500;margin-bottom:12px;">Add Custom Target</div><div class="row"><input type="text" id="tl" placeholder="Label" style="flex:2;"><input type="number" id="tg" placeholder="Goal" style="flex:1;" min="1"><input type="text" id="tu" placeholder="Unit" style="flex:1.5;"><button class="btn btn-primary btn-sm" onclick="addT()">Add</button></div></div>`;}
 function updT(id,d){const p=S.targetProgress[id]||0,t=S.targets.find(x=>x.id===id);S.targetProgress[id]=Math.max(0,Math.min(t.goal,p+d));persist();renderTargets();}
-function resetT(){if(!confirm('Reset progress?'))return;S.targetProgress={};persist();renderTargets();}
+function rstT(){if(!confirm('Reset?'))return;S.targetProgress={};persist();renderTargets();}
 function addT(){const l=document.getElementById('tl').value.trim(),g=parseInt(document.getElementById('tg').value)||5,u=document.getElementById('tu').value.trim()||'items';if(!l)return;S.targets.push({id:'c_'+Date.now(),label:l,goal:g,unit:u});persist();renderTargets();}
 
 // ─── My Channel ───────────────────────────────────────────────────────────────
-let chartV=null,chartE=null;
+let cV=null,cE=null;
 async function renderChannel(){
   const pg=document.getElementById('page');
   pg.innerHTML=`
-    <div class="row-between page-header"><div><div class="page-title">My Channel</div><div class="page-sub">${MY_CHANNEL}</div></div></div>
-    <div id="ch-hdr"><div class="skeleton" style="height:100px;border-radius:16px;margin-bottom:22px;"></div></div>
-    <div id="ch-stats" class="stats-row">${Array(4).fill(0).map(()=>`<div class="stat-card"><div class="skeleton" style="height:12px;width:60%;margin-bottom:10px;"></div><div class="skeleton" style="height:24px;width:80%;"></div></div>`).join('')}</div>
-    <div class="charts-grid" id="ch-charts"><div class="chart-card"><div class="skeleton" style="height:180px;border-radius:8px;"></div></div><div class="chart-card"><div class="skeleton" style="height:180px;border-radius:8px;"></div></div></div>
+    <div class="page-header"><div class="page-title">My Channel</div><div class="page-sub">${MY_CHANNEL} · Auto-refreshed</div></div>
+    <div id="ch-hero-slot"><div class="skeleton" style="height:100px;border-radius:16px;margin-bottom:20px;"></div></div>
+    <div id="ch-stats" class="stats-row">${Array(4).fill(0).map(()=>`<div class="stat-card"><div class="skeleton" style="height:11px;width:55%;margin-bottom:10px;"></div><div class="skeleton" style="height:24px;width:70%;"></div></div>`).join('')}</div>
+    <div class="charts-grid" id="ch-charts">
+      <div class="chart-box"><div class="skeleton" style="height:160px;border-radius:8px;"></div></div>
+      <div class="chart-box"><div class="skeleton" style="height:160px;border-radius:8px;"></div></div>
+    </div>
     <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:600;margin-bottom:12px;">Video Performance</div>
-    <div id="ch-table"><div class="skeleton" style="height:180px;border-radius:12px;"></div></div>
-    <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:600;margin:20px 0 12px;">Recent Videos</div>
-    <div id="ch-vids"><div style="display:flex;flex-direction:column;gap:10px;">${Array(4).fill(0).map(()=>`<div class="skeleton" style="height:90px;border-radius:14px;"></div>`).join('')}</div></div>`;
+    <div id="ch-tbl"><div class="skeleton" style="height:200px;border-radius:14px;margin-bottom:20px;"></div></div>
+    <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:600;margin-bottom:12px;">Recent Videos</div>
+    <div id="ch-vids"><div class="col" style="gap:10px;">${skRow()}</div></div>`;
 
   try{
     const h=MY_CHANNEL.replace('@','');
     const chData=await ytF(`channels?part=statistics,snippet&forHandle=${h}`);
     if(!chData.items?.length)throw new Error('Channel not found');
     const ch=chData.items[0];
-    S.myStats=ch.statistics;S.myChannelId=ch.id;
-    S.myAvatar=ch.snippet?.thumbnails?.medium?.url||ch.snippet?.thumbnails?.default?.url||null;
-    const avatar=ch.snippet?.thumbnails?.high?.url||ch.snippet?.thumbnails?.medium?.url||ch.snippet?.thumbnails?.default?.url||null;
+    S.myStats=ch.statistics; S.myChannelId=ch.id;
+    const av=ch.snippet?.thumbnails?.high?.url||ch.snippet?.thumbnails?.medium?.url||ch.snippet?.thumbnails?.default?.url||null;
+    S.myAvatar=av;
     const avgVPV=Math.round(parseInt(ch.statistics.viewCount)/Math.max(1,parseInt(ch.statistics.videoCount)));
 
-    // Channel header with avatar
-    document.getElementById('ch-hdr').innerHTML=`
-      <div class="ch-header">
-        ${avatar?`<img class="ch-avatar" src="${avatar}" alt="${ch.snippet.title}">`:`<div class="ch-avatar-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>`}
+    document.getElementById('ch-hero-slot').innerHTML=`
+      <div class="ch-hero">
+        ${av?`<img class="ch-avatar" src="${av}" alt="${ch.snippet.title}">`:`<div class="ch-av-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>`}
         <div class="ch-meta">
           <div class="ch-name">${ch.snippet.title}</div>
           <div class="ch-handle">${MY_CHANNEL}</div>
-          <div class="ch-quick-stats">
-            <div class="ch-qs"><strong style="color:var(--green)">${fmtN(ch.statistics.subscriberCount)}</strong> subscribers</div>
-            <div class="ch-qs"><strong>${fmtN(ch.statistics.viewCount)}</strong> views</div>
-            <div class="ch-qs"><strong>${fmtN(ch.statistics.videoCount)}</strong> videos</div>
+          <div class="ch-qs">
+            <div class="ch-q"><strong style="color:var(--green)">${fN(ch.statistics.subscriberCount)}</strong> subscribers</div>
+            <div class="ch-q"><strong>${fN(ch.statistics.viewCount)}</strong> total views</div>
+            <div class="ch-q"><strong>${fN(ch.statistics.videoCount)}</strong> videos</div>
           </div>
         </div>
       </div>`;
 
     document.getElementById('ch-stats').innerHTML=`
-      <div class="stat-card"><div class="stat-label">Subscribers</div><div class="stat-value" style="color:var(--green)">${fmtN(ch.statistics.subscriberCount)}</div></div>
-      <div class="stat-card"><div class="stat-label">Total Views</div><div class="stat-value" style="color:var(--pl)">${fmtN(ch.statistics.viewCount)}</div></div>
-      <div class="stat-card"><div class="stat-label">Videos</div><div class="stat-value">${fmtN(ch.statistics.videoCount)}</div></div>
-      <div class="stat-card"><div class="stat-label">Avg Views</div><div class="stat-value" style="color:var(--yellow)">${fmtN(avgVPV)}</div><div class="stat-sub">Per video</div></div>`;
+      <div class="stat-card"><div class="stat-label">Subscribers</div><div class="stat-value" style="color:var(--green)">${fN(ch.statistics.subscriberCount)}</div></div>
+      <div class="stat-card"><div class="stat-label">Total Views</div><div class="stat-value" style="color:var(--pl)">${fN(ch.statistics.viewCount)}</div></div>
+      <div class="stat-card"><div class="stat-label">Videos</div><div class="stat-value">${fN(ch.statistics.videoCount)}</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Views</div><div class="stat-value" style="color:var(--yellow)">${fN(avgVPV)}</div><div class="stat-sub">Per video</div></div>`;
 
-    // Fetch videos
     const vids=await ytF(`search?part=snippet&channelId=${ch.id}&type=video&order=date&maxResults=20`);
     const ids=vids.items?.map(v=>v.id.videoId).filter(Boolean).join(',');
-    if(!ids)throw new Error('No videos');
+    if(!ids)throw new Error('No videos found');
     const det=await ytF(`videos?part=statistics,snippet&id=${ids}`);
     const myVids=det.items||[];
     feedVids=[...feedVids,...myVids];
 
     const sorted=[...myVids].sort((a,b)=>parseInt(b.statistics?.viewCount||0)-parseInt(a.statistics?.viewCount||0));
-    const labels=myVids.map(v=>{const t=v.snippet?.title||'';return t.length>18?t.slice(0,18)+'…':t;});
+    const labels=myVids.map(v=>{const t=v.snippet?.title||'';return t.length>16?t.slice(0,16)+'…':t;});
     const viewData=myVids.map(v=>parseInt(v.statistics?.viewCount||0));
     const ratioData=myVids.map(v=>{const vw=parseInt(v.statistics?.viewCount||1),lk=parseInt(v.statistics?.likeCount||0);return parseFloat(((lk/vw)*100).toFixed(2));});
+    const maxV=Math.max(...viewData);
 
     document.getElementById('ch-charts').innerHTML=`
-      <div class="chart-card"><div class="chart-title">📊 Views Per Video</div><div><canvas id="cv" height="180"></canvas></div></div>
-      <div class="chart-card"><div class="chart-title">💚 Engagement Rate</div><div><canvas id="ce" height="180"></canvas></div></div>`;
+      <div class="chart-box">
+        <div class="chart-box-title"><div class="ct-dot" style="background:var(--purple);"></div>Views Per Video</div>
+        <canvas id="cv" height="160"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title"><div class="ct-dot" style="background:var(--green);"></div>Like Rate %</div>
+        <canvas id="ce" height="160"></canvas>
+      </div>`;
 
-    if(chartV){chartV.destroy();chartV=null;}
-    if(chartE){chartE.destroy();chartE=null;}
+    if(cV){cV.destroy();cV=null;} if(cE){cE.destroy();cE=null;}
 
-    const maxV=Math.max(...viewData);
-    chartV=new Chart(document.getElementById('cv'),{type:'bar',data:{labels,datasets:[{data:viewData,backgroundColor:viewData.map(v=>v===maxV?'rgba(124,58,237,.95)':'rgba(124,58,237,.35)'),borderRadius:5,borderSkipped:false}]},options:{responsive:true,plugins:{legend:{display:false},tooltip:{backgroundColor:'#13131e',titleColor:'#e8e8f5',bodyColor:'#6b6b90',borderColor:'#1e1e2e',borderWidth:1,callbacks:{label:ctx=>`${fmtN(ctx.raw)} views`}}},scales:{x:{ticks:{color:'#6b6b90',font:{size:9},maxRotation:40},grid:{color:'#1e1e2e'}},y:{ticks:{color:'#6b6b90',font:{size:9},callback:v=>fmtN(v)},grid:{color:'#1e1e2e'}}}}});
+    const chartOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#13131e',titleColor:'#e8e8f5',bodyColor:'#6b6b90',borderColor:'#1e1e2e',borderWidth:1}},scales:{x:{ticks:{color:'#6b6b90',font:{size:9},maxRotation:45},grid:{color:'rgba(30,30,46,.6)'},border:{display:false}},y:{ticks:{color:'#6b6b90',font:{size:9}},grid:{color:'rgba(30,30,46,.6)'},border:{display:false}}}};
 
-    chartE=new Chart(document.getElementById('ce'),{type:'line',data:{labels,datasets:[{data:ratioData,borderColor:'#34d399',backgroundColor:'rgba(52,211,153,.08)',borderWidth:2,tension:.4,fill:true,pointBackgroundColor:'#34d399',pointRadius:3,pointHoverRadius:5}]},options:{responsive:true,plugins:{legend:{display:false},tooltip:{backgroundColor:'#13131e',titleColor:'#e8e8f5',bodyColor:'#6b6b90',borderColor:'#1e1e2e',borderWidth:1,callbacks:{label:ctx=>`${ctx.raw}% like rate`}}},scales:{x:{ticks:{color:'#6b6b90',font:{size:9},maxRotation:40},grid:{color:'#1e1e2e'}},y:{ticks:{color:'#6b6b90',font:{size:9},callback:v=>v+'%'},grid:{color:'#1e1e2e'}}}}});
+    cV=new Chart(document.getElementById('cv'),{type:'bar',data:{labels,datasets:[{data:viewData,backgroundColor:viewData.map(v=>v===maxV?'rgba(124,58,237,.9)':'rgba(124,58,237,.3)'),borderRadius:5,borderSkipped:false}]},options:{...chartOpts,plugins:{...chartOpts.plugins,tooltip:{...chartOpts.plugins.tooltip,callbacks:{label:ctx=>`${fN(ctx.raw)} views`}}},scales:{...chartOpts.scales,y:{...chartOpts.scales.y,ticks:{...chartOpts.scales.y.ticks,callback:v=>fN(v)}}}}});
 
-    document.getElementById('ch-table').innerHTML=`
-      <div class="card" style="overflow:hidden;overflow-x:auto;">
+    cE=new Chart(document.getElementById('ce'),{type:'line',data:{labels,datasets:[{data:ratioData,borderColor:'#34d399',backgroundColor:'rgba(52,211,153,.07)',borderWidth:2,tension:.4,fill:true,pointBackgroundColor:'#34d399',pointRadius:3,pointHoverRadius:5}]},options:{...chartOpts,plugins:{...chartOpts.plugins,tooltip:{...chartOpts.plugins.tooltip,callbacks:{label:ctx=>`${ctx.raw}% like rate`}}},scales:{...chartOpts.scales,y:{...chartOpts.scales.y,ticks:{...chartOpts.scales.y.ticks,callback:v=>v+'%'}}}}});
+
+    document.getElementById('ch-tbl').innerHTML=`
+      <div class="perf-wrap">
         <table class="perf-table">
           <thead><tr><th>#</th><th>Thumb</th><th>Title</th><th>Views</th><th>Likes</th><th>Rate</th><th>Posted</th></tr></thead>
           <tbody>${sorted.slice(0,10).map((v,i)=>{
             const vw=parseInt(v.statistics?.viewCount||0),lk=parseInt(v.statistics?.likeCount||0);
             const rate=vw>0?((lk/vw)*100).toFixed(1):'0';
-            const rColor=parseFloat(rate)>3?'var(--green)':parseFloat(rate)>1?'var(--yellow)':'var(--red)';
-            return`<tr><td><div class="rank-badge">${i+1}</div></td><td><img class="perf-thumb" src="${v.snippet?.thumbnails?.default?.url||''}"></td><td style="max-width:160px;"><div style="font-size:12px;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${v.snippet?.title||''}</div></td><td style="font-family:'Syne',sans-serif;font-weight:600;color:var(--pl);">${fmtN(vw)}</td><td>${fmtN(lk)}</td><td style="color:${rColor};font-weight:500;">${rate}%</td><td style="color:var(--muted);white-space:nowrap;font-size:11px;">${ago(v.snippet?.publishedAt)}</td></tr>`;
+            const rc=parseFloat(rate)>3?'var(--green)':parseFloat(rate)>1?'var(--yellow)':'var(--red)';
+            return`<tr><td><div class="rank-n">${i+1}</div></td><td><img class="perf-thumb" src="${v.snippet?.thumbnails?.default?.url||''}"></td><td style="max-width:160px;"><div style="font-size:11px;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${v.snippet?.title||''}</div></td><td style="font-family:'Syne',sans-serif;font-weight:600;color:var(--pl);white-space:nowrap;">${fN(vw)}</td><td style="white-space:nowrap;">${fN(lk)}</td><td style="color:${rc};font-weight:600;">${rate}%</td><td style="color:var(--muted);white-space:nowrap;font-size:11px;">${ago(v.snippet?.publishedAt)}</td></tr>`;
           }).join('')}</tbody>
         </table>
       </div>`;
 
-    document.getElementById('ch-vids').innerHTML=myVids.length?`<div class="feed-list">${myVids.map((v,i)=>feedCardHTML(v,i)).join('')}</div>`:`<div class="empty-state">No videos.</div>`;
-  }catch(e){pg.innerHTML+=`<div class="empty-state" style="color:var(--red)">${e.message}</div>`;}
+    document.getElementById('ch-vids').innerHTML=myVids.length?`<div class="feed-list">${myVids.map((v,i)=>feedCard(v,i)).join('')}</div>`:`<div class="empty-st">No videos.</div>`;
+  }catch(e){pg.innerHTML+=`<div class="empty-st" style="color:var(--red)">${e.message}</div>`;}
 }
 
-// ─── Niche Finder v2 ──────────────────────────────────────────────────────────
-const NICHE_CLUSTERS = [
-  // Faceless proven formats
-  {label:'Faceless Motivational',keywords:['motivational shorts faceless','dark motivation shorts','mindset shorts']},
-  {label:'Facts & Trivia',keywords:['facts shorts channel','did you know shorts','mind blowing facts shorts']},
-  {label:'Satisfying & ASMR',keywords:['satisfying shorts faceless','oddly satisfying shorts','relaxing shorts']},
-  {label:'AI & Tech Content',keywords:['ai generated shorts','technology shorts faceless','future tech shorts']},
-  {label:'Comparison & Ranked',keywords:['comparison shorts','ranked list shorts','versus shorts']},
-  {label:'Before & After',keywords:['before after transformation shorts','glow up shorts','makeover shorts']},
-  {label:'POV Storytelling',keywords:['pov shorts faceless','story time shorts','narrative shorts']},
-  {label:'Dark & Horror',keywords:['scary facts shorts','creepy shorts faceless','horror story shorts']},
-  {label:'Finance & Money',keywords:['money facts shorts','rich vs poor shorts','finance tips shorts']},
-  {label:'Sports Highlights',keywords:['sports shorts faceless','football shorts clips','basketball shorts']},
+// ─── Niche Finder v3 — Signal-Based ──────────────────────────────────────────
+// Broad seed terms that pull generic Shorts content — we filter AFTER by channel metrics
+// This simulates the raw Shorts feed rather than keyword-specific results
+const SEED_TERMS = [
+  '#shorts','shorts 2025','viral shorts','trending shorts',
+  'shorts challenge','shorts story','shorts reaction','shorts facts',
+  'shorts motivation','shorts satisfying','shorts pov','shorts dark'
 ];
-
-const PRESET_KW = ['family challenge shorts','teen prank shorts','emotional story shorts','school prank shorts','reaction shorts','siblings challenge shorts','viral dare shorts','surprise reaction'];
 
 function renderNiche(){
   document.getElementById('page').innerHTML=`
-    <div class="row-between page-header">
-      <div><div class="page-title">🔥 Niche Finder</div><div class="page-sub">Faceless Shorts channels being pushed before saturation</div></div>
+    <div class="row-b page-header">
+      <div><div class="page-title">🔥 Niche Finder</div><div class="page-sub">Signal-based detection — no keyword bias</div></div>
       <div style="font-size:10px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 10px;">~1,500 quota/scan</div>
     </div>
 
-    <!-- Scanner -->
-    <div class="card card-pad" style="margin-bottom:18px;">
-      <div style="font-size:13px;font-weight:500;margin-bottom:12px;">Niche Scanner</div>
-      <div class="tab-bar" id="scan-mode-bar">
-        <button class="tab-btn active" id="nm-auto" onclick="setNicheMode('auto')">Auto-Discover</button>
-        <button class="tab-btn" id="nm-manual" onclick="setNicheMode('manual')">Manual Keyword</button>
-      </div>
-      <div id="nm-auto-ui">
-        <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">Scans ${NICHE_CLUSTERS.length} niche clusters automatically — optimised for faceless Shorts channels</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
-          ${NICHE_CLUSTERS.map(c=>`<span style="font-size:11px;background:var(--pdim);color:var(--pl);border-radius:6px;padding:3px 8px;">${c.label}</span>`).join('')}
+    <!-- Signal Scanner -->
+    <div class="card card-pad" style="margin-bottom:20px;">
+      <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;">📡 Signal Scanner</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Pulls the most viewed Shorts from the last 14 days across broad categories, then filters for channels under 50 videos that are suddenly going viral. No keyword bias.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+        <div style="flex:1;min-width:120px;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px;">Max Videos Posted</div>
+          <select id="n-maxvids" style="width:100%;"><option value="20">Under 20 videos</option><option value="50" selected>Under 50 videos</option><option value="100">Under 100 videos</option></select>
         </div>
-        <button class="btn btn-primary btn-full" id="auto-scan-btn" onclick="runAutoScan()">🔍 Auto-Discover Niches</button>
-      </div>
-      <div id="nm-manual-ui" style="display:none;">
-        <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">Quick presets:</div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">${PRESET_KW.map(k=>`<button class="btn btn-ghost btn-sm" onclick="document.getElementById('niche-kw').value='${k}';" style="font-size:11px;">${k}</button>`).join('')}</div>
-        <div class="row">
-          <input type="text" id="niche-kw" placeholder="Enter keyword..." style="flex:1;">
-          <select id="niche-days" style="width:auto;"><option value="7">7 days</option><option value="14" selected>14 days</option><option value="30">30 days</option></select>
-          <button class="btn btn-primary" id="manual-scan-btn" onclick="runManualScan()">Scan</button>
+        <div style="flex:1;min-width:120px;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px;">Max Subscribers</div>
+          <select id="n-maxsubs" style="width:100%;"><option value="5000">Under 5K</option><option value="10000" selected>Under 10K</option><option value="20000">Under 20K</option></select>
+        </div>
+        <div style="flex:1;min-width:120px;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px;">Min Views on Video</div>
+          <select id="n-minviews" style="width:100%;"><option value="50000">50K+</option><option value="100000" selected>100K+</option><option value="500000">500K+</option></select>
         </div>
       </div>
+      <button class="btn btn-primary btn-full" id="sig-btn" onclick="runSignalScan()">🔍 Scan Signals Now</button>
     </div>
 
-    <div id="niche-results"></div>
+    <div id="sig-results"></div>
 
+    <!-- Channels Being Pushed -->
     <div style="margin-top:28px;">
-      <div class="row-between" style="margin-bottom:14px;">
+      <div class="row-b" style="margin-bottom:14px;">
         <div>
           <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;">📡 Channels Being Pushed</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:3px;">Faceless channels · Under 20K subs · Algorithm actively promoting them</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">Under 50 videos · Under 10K subs · Disproportionate views · Algorithm signal</div>
         </div>
-        <button class="btn btn-ghost btn-sm" id="pushed-btn" onclick="loadPushed()">↻ Refresh</button>
+        <button class="btn btn-ghost btn-sm" id="push-btn" onclick="loadPushed()">↻ Detect</button>
       </div>
-      <div id="pushed-out"><div class="empty-state" style="padding:24px;">Tap Refresh to detect channels currently being pushed by YouTube</div></div>
+      <div id="push-out"><div class="empty-st" style="padding:22px;">Tap Detect to find channels currently being pushed by YouTube</div></div>
     </div>`;
-  window._nicheMode='auto';
 }
 
-function setNicheMode(m){
-  window._nicheMode=m;
-  document.getElementById('nm-auto').className='tab-btn'+(m==='auto'?' active':'');
-  document.getElementById('nm-manual').className='tab-btn'+(m==='manual'?' active':'');
-  document.getElementById('nm-auto-ui').style.display=m==='auto'?'block':'none';
-  document.getElementById('nm-manual-ui').style.display=m==='manual'?'block':'none';
-}
-
-async function runAutoScan(){
-  const btn=document.getElementById('auto-scan-btn'),out=document.getElementById('niche-results');
-  btn.disabled=true;btn.textContent='Scanning niches...';
-  out.innerHTML=`<div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:600;margin-bottom:14px;">Scanning ${NICHE_CLUSTERS.length} niche clusters...</div><div class="col" style="gap:10px;">${Array(5).fill(0).map(()=>`<div class="skeleton" style="height:120px;border-radius:14px;"></div>`).join('')}</div>`;
+async function runSignalScan(){
+  const btn=document.getElementById('sig-btn'),out=document.getElementById('sig-results');
+  const maxVids=parseInt(document.getElementById('n-maxvids').value)||50;
+  const maxSubs=parseInt(document.getElementById('n-maxsubs').value)||10000;
+  const minViews=parseInt(document.getElementById('n-minviews').value)||100000;
+  btn.disabled=true; btn.textContent='Scanning signals...';
+  out.innerHTML=`<div style="font-size:13px;color:var(--muted);margin-bottom:12px;">Scanning ${SEED_TERMS.length} signal sources for channels under ${maxVids} videos with ${fN(minViews)}+ views...</div><div class="col" style="gap:10px;">${Array(4).fill(0).map(()=>`<div class="skeleton" style="height:130px;border-radius:14px;"></div>`).join('')}</div>`;
 
   const after=new Date(Date.now()-14*86400000).toISOString();
-  const results=[];
+  const allVids=[];
+  const seenVids=new Set();
 
   try{
-    for(const cluster of NICHE_CLUSTERS){
-      const kw=cluster.keywords[0];
+    // Pull from multiple seed terms to get broad coverage
+    for(const seed of SEED_TERMS.slice(0,8)){
       try{
-        const data=await ytF(`search?part=snippet&q=${encodeURIComponent(kw)}&type=video&videoDuration=short&order=viewCount&publishedAfter=${after}&maxResults=15`);
-        const items=data.items||[];
-        if(!items.length)continue;
-        const ids=items.map(v=>v.id.videoId).filter(Boolean).join(',');
-        const chIds=[...new Set(items.map(v=>v.snippet?.channelId).filter(Boolean))].slice(0,10).join(',');
-        const[vDet,cDet]=await Promise.all([ytF(`videos?part=statistics,snippet&id=${ids}`),ytF(`channels?part=statistics,snippet&id=${chIds}`)]);
-        const vids=vDet.items||[],chs=cDet.items||[];
-        const chMap={};chs.forEach(c=>{chMap[c.id]=c;});
-
-        // Score: focus on faceless signals
-        const facelessChs=chs.filter(c=>{
-          const subs=parseInt(c.statistics?.subscriberCount||0);
-          const vCount=parseInt(c.statistics?.videoCount||0);
-          return subs<20000&&vCount>=3;
-        });
-
-        const avgViews=vids.reduce((a,v)=>a+parseInt(v.statistics?.viewCount||0),0)/Math.max(1,vids.length);
-        const avgSubs=chs.reduce((a,c)=>a+parseInt(c.statistics?.subscriberCount||0),0)/Math.max(1,chs.length);
-        const ratio=avgViews/Math.max(1,avgSubs);
-
-        let sat,satColor,satLabel;
-        if(ratio>15){sat=10;satColor='var(--green)';satLabel='🟢 Early Opportunity';}
-        else if(ratio>5){sat=40;satColor='var(--green)';satLabel='🟢 Growing Fast';}
-        else if(ratio>2){sat=65;satColor='var(--yellow)';satLabel='🟡 Competitive';}
-        else{sat=88;satColor='var(--red)';satLabel='🔴 Saturated';}
-
-        const topVid=vids.sort((a,b)=>parseInt(b.statistics?.viewCount||0)-parseInt(a.statistics?.viewCount||0))[0];
-        const topCh=topVid?chMap[topVid.snippet?.channelId]:null;
-
-        results.push({cluster,avgViews,avgSubs,ratio,sat,satColor,satLabel,facelessCount:facelessChs.length,topVid,topCh,vids,chMap});
+        const d=await ytF(`search?part=snippet&q=${encodeURIComponent(seed)}&type=video&videoDuration=short&order=viewCount&publishedAfter=${after}&maxResults=10`);
+        for(const item of (d.items||[])){
+          const vid=item.id?.videoId;
+          if(vid&&!seenVids.has(vid)){seenVids.add(vid);allVids.push(item);}
+        }
       }catch(e){continue;}
     }
 
-    // Sort by opportunity (lower sat = better)
-    results.sort((a,b)=>a.sat-b.sat);
+    if(!allVids.length)throw new Error('No signals found. Try again.');
 
-    if(!results.length){out.innerHTML=`<div class="empty-state">No results found. Try again.</div>`;btn.disabled=false;btn.textContent='🔍 Auto-Discover Niches';return;}
+    // Get video stats
+    const vidIds=allVids.map(v=>v.id?.videoId).filter(Boolean).slice(0,50).join(',');
+    const chIds=[...new Set(allVids.map(v=>v.snippet?.channelId).filter(Boolean))].slice(0,30).join(',');
 
-    out.innerHTML=`<div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:14px;">Niche Opportunities — Ranked by Opportunity</div><div class="col" style="gap:12px;">${results.map((r,i)=>`
-      <div class="niche-card fade-up" style="animation-delay:${i*50}ms">
-        <div class="row-between" style="margin-bottom:10px;">
-          <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;">${r.cluster.label}</div>
-          <div style="font-size:12px;font-weight:600;color:${r.satColor};">${r.satLabel}</div>
-        </div>
-        <div class="niche-score-bar"><div class="niche-score-fill" style="width:${r.sat}%;background:${r.satColor};"></div></div>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-bottom:12px;">
-          <span>👁 ${fmtN(Math.round(r.avgViews))} avg views</span>
-          <span>📊 ${r.ratio.toFixed(1)}x views/subs ratio</span>
-          <span>👤 ${r.facelessCount} faceless channels active</span>
-          <span>📈 ${fmtN(Math.round(r.avgSubs))} avg channel size</span>
-        </div>
-        ${r.topVid?`
-        <div style="font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px;">Top Video</div>
-        <div style="background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:flex;gap:10px;align-items:center;cursor:pointer;margin-bottom:10px;" onclick="openMod('${r.topVid.id?.videoId||r.topVid.id}','${(r.topVid.snippet?.title||'').replace(/'/g,"\\'")}','${fmtN(r.topVid.statistics?.viewCount)}','${fmtN(r.topVid.statistics?.likeCount)}')">
-          <img src="${r.topVid.snippet?.thumbnails?.medium?.url||''}" style="width:64px;height:36px;object-fit:cover;border-radius:5px;flex-shrink:0;">
-          <div style="flex:1;min-width:0;">
-            <div style="font-size:12px;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${r.topVid.snippet?.title||''}</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:3px;">👁 ${fmtN(r.topVid.statistics?.viewCount)} · ${r.topVid.snippet?.channelTitle||''}</div>
-          </div>
-          <button class="btn btn-primary btn-sm" style="flex-shrink:0;">Analyse</button>
-        </div>`:''}
-        ${r.topCh?`
-        <div style="font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px;">Top Channel in Niche</div>
-        <div style="background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:flex;gap:10px;align-items:center;">
-          <img src="${r.topCh.snippet?.thumbnails?.default?.url||''}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;" onerror="this.style.display='none'">
-          <div style="flex:1;min-width:0;">
-            <div style="font-size:13px;font-weight:600;">${r.topCh.snippet?.title||''}</div>
-            <div style="font-size:11px;color:var(--muted);">👥 ${fmtN(r.topCh.statistics?.subscriberCount)} · 🎬 ${fmtN(r.topCh.statistics?.videoCount)} videos · 👁 ${fmtN(r.topCh.statistics?.viewCount)} total views</div>
-          </div>
-        </div>`:''}
-        <div style="margin-top:10px;"><button class="btn btn-ghost btn-sm" onclick="nicheToIdeas('${r.cluster.label.replace(/'/g,"\\'")}')">💡 Generate Ideas from This Niche</button></div>
-      </div>`).join('')}</div>`;
+    const[vDet,cDet]=await Promise.all([
+      ytF(`videos?part=statistics,snippet&id=${vidIds}`),
+      ytF(`channels?part=statistics,snippet&id=${chIds}`),
+    ]);
 
-    // AI summary
-    const topNiches=results.slice(0,3).map(r=>`${r.cluster.label}: ${r.satLabel}, avg ${fmtN(Math.round(r.avgViews))} views, ratio ${r.ratio.toFixed(1)}x`).join('\n');
-    clF(`You are a YouTube niche analyst for Matterverse (faceless-adjacent Salish/Jordan Matter niche, teens 12-17).\n\nTop niche opportunities found:\n${topNiches}\n\nProvide:\n1. Which niche to enter first and why\n2. How Matterverse can adapt the top niche to its style\n3. One specific hook template to use this week\n\nBe direct, 3-4 sentences max.`).then(res=>{
-      const aiDiv=document.createElement('div');
-      aiDiv.className='insight-block fade-up';
-      aiDiv.style.marginTop='14px';
-      aiDiv.innerHTML=`<div class="insight-meta"><div class="pulse-dot"></div><div class="insight-label">AI Niche Recommendation</div></div><div style="font-size:13px;line-height:1.8;white-space:pre-wrap;">${res}</div>`;
-      out.appendChild(aiDiv);
-    }).catch(()=>{});
-
-  }catch(e){out.innerHTML=`<div class="empty-state" style="color:var(--red)">${e.message}</div>`;}
-  btn.disabled=false;btn.textContent='🔍 Auto-Discover Niches';
-}
-
-async function runManualScan(){
-  const kw=document.getElementById('niche-kw').value.trim(),days=parseInt(document.getElementById('niche-days').value)||14;
-  const btn=document.getElementById('manual-scan-btn'),out=document.getElementById('niche-results');
-  if(!kw)return;
-  btn.disabled=true;btn.textContent='Scanning...';
-  out.innerHTML=`<div class="col" style="gap:10px;">${Array(3).fill(0).map(()=>`<div class="skeleton" style="height:100px;border-radius:14px;"></div>`).join('')}</div>`;
-  try{
-    const after=new Date(Date.now()-days*86400000).toISOString();
-    const data=await ytF(`search?part=snippet&q=${encodeURIComponent(kw)}&type=video&videoDuration=short&order=viewCount&publishedAfter=${after}&maxResults=25`);
-    const items=data.items||[];if(!items.length)throw new Error('No results.');
-    const ids=items.map(v=>v.id.videoId).filter(Boolean).join(',');
-    const chIds=[...new Set(items.map(v=>v.snippet?.channelId).filter(Boolean))].slice(0,15).join(',');
-    const[vDet,cDet]=await Promise.all([ytF(`videos?part=statistics,snippet&id=${ids}`),ytF(`channels?part=statistics,snippet&id=${chIds}`)]);
-    const vids=vDet.items||[],chs=cDet.items||[];
+    const vids=vDet.items||[];
+    const chs=cDet.items||[];
     const chMap={};chs.forEach(c=>{chMap[c.id]=c;});
-    const avgViews=vids.reduce((a,v)=>a+parseInt(v.statistics?.viewCount||0),0)/Math.max(1,vids.length);
-    const avgSubs=chs.reduce((a,c)=>a+parseInt(c.statistics?.subscriberCount||0),0)/Math.max(1,chs.length);
-    const ratio=avgViews/Math.max(1,avgSubs);
-    let sat,satColor,satLabel;
-    if(ratio>15){sat=10;satColor='var(--green)';satLabel='🟢 Early Opportunity';}
-    else if(ratio>5){sat=40;satColor='var(--green)';satLabel='🟢 Growing Fast';}
-    else if(ratio>2){sat=65;satColor='var(--yellow)';satLabel='🟡 Competitive';}
-    else{sat=88;satColor='var(--red)';satLabel='🔴 Saturated';}
-    const topVids=vids.sort((a,b)=>parseInt(b.statistics?.viewCount||0)-parseInt(a.statistics?.viewCount||0)).slice(0,5);
-    const facelessChs=chs.filter(c=>parseInt(c.statistics?.subscriberCount||0)<20000&&parseInt(c.statistics?.videoCount||0)>=3);
+    const vidMap={};vids.forEach(v=>{vidMap[v.id]=v;});
 
-    // AI analysis
-    const aiP=clF(`Analyse niche "${kw}" for Matterverse (Salish/Jordan Matter, teens 12-17, faceless-adjacent).\nTop videos:\n${topVids.slice(0,3).map(v=>`"${v.snippet?.title}" — ${fmtN(v.statistics?.viewCount)} views`).join('\n')}\nAvg views:${fmtN(Math.round(avgViews))}, Avg subs:${fmtN(Math.round(avgSubs))}, Saturation:${satLabel}\n1.Niche summary (2 sentences)\n2.Why it's trending\n3.Window before saturation\n4.Best angle for Matterverse\n5.One hook template`,'Be direct and actionable.');
+    // Filter: the real signal
+    // Under maxVids total videos posted, under maxSubs subs, video has minViews+ views
+    const signals=[];
+    const seenCh=new Set();
+
+    for(const rawVid of allVids){
+      const vid=rawVid.id?.videoId;
+      const det=vidMap[vid];
+      if(!det)continue;
+      const chId=det.snippet?.channelId||rawVid.snippet?.channelId;
+      if(seenCh.has(chId))continue;
+      const ch=chMap[chId];
+      if(!ch)continue;
+      const subs=parseInt(ch.statistics?.subscriberCount||0);
+      const vCount=parseInt(ch.statistics?.videoCount||0);
+      const views=parseInt(det.statistics?.viewCount||0);
+      if(subs>maxSubs||vCount>maxVids||views<minViews)continue;
+      seenCh.add(chId);
+      const ratio=subs>0?views/subs:views;
+      signals.push({ch,vid:det,subs,vCount,views,ratio});
+    }
+
+    signals.sort((a,b)=>b.ratio-a.ratio);
+
+    if(!signals.length){
+      out.innerHTML=`<div class="empty-st">No channels matched your filters. Try loosening the criteria (more videos, higher subs, lower min views).</div>`;
+      btn.disabled=false;btn.textContent='🔍 Scan Signals Now';return;
+    }
 
     out.innerHTML=`
-      <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:14px;">Results: "${kw}"</div>
-      <div class="stats-row" style="margin-bottom:16px;">
-        <div class="stat-card"><div class="stat-label">Saturation</div><div style="font-size:18px;margin:6px 0;">${satLabel}</div></div>
-        <div class="stat-card"><div class="stat-label">Avg Views</div><div class="stat-value" style="color:var(--pl);font-size:20px;">${fmtN(Math.round(avgViews))}</div></div>
-        <div class="stat-card"><div class="stat-label">Faceless Chs</div><div class="stat-value" style="font-size:20px;">${facelessChs.length}</div></div>
-        <div class="stat-card"><div class="stat-label">Avg Channel</div><div class="stat-value" style="color:var(--yellow);font-size:20px;">${fmtN(Math.round(avgSubs))}</div><div class="stat-sub">subscribers</div></div>
-      </div>
-      <div class="niche-score-bar" style="margin-bottom:16px;"><div class="niche-score-fill" style="width:${sat}%;background:${satColor};"></div></div>
-      <div class="insight-block" style="margin-bottom:16px;" id="manual-ai"><div class="col" style="gap:6px;">${[90,70,80,60].map(w=>`<div class="skeleton" style="height:13px;width:${w}%;"></div>`).join('')}</div></div>
-      <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:600;margin-bottom:10px;">Top Videos</div>
-      <div class="col" style="gap:10px;">
-        ${topVids.map(v=>{
-          const vid=v.id?.videoId||v.id,ch=chMap[v.snippet?.channelId];
-          const subs=ch?fmtN(ch.statistics?.subscriberCount):'?';
-          const chAvatar=ch?.snippet?.thumbnails?.default?.url||'';
-          const views=parseInt(v.statistics?.viewCount||0);
-          const chSubs=parseInt(ch?.statistics?.subscriberCount||1);
-          const r=(views/chSubs).toFixed(1);
-          const hot=parseFloat(r)>5;
-          return`<div class="niche-card" style="cursor:pointer;" onclick="openMod('${vid}','${(v.snippet?.title||'').replace(/'/g,"\\'")}','${fmtN(v.statistics?.viewCount)}','${fmtN(v.statistics?.likeCount)}')">
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <img src="${v.snippet?.thumbnails?.medium?.url||''}" style="width:80px;height:45px;object-fit:cover;border-radius:6px;flex-shrink:0;">
-              <div style="flex:1;min-width:0;">
-                <div style="font-size:13px;font-weight:500;margin-bottom:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${v.snippet?.title||''}</div>
-                <div style="display:flex;gap:8px;font-size:11px;color:var(--muted);flex-wrap:wrap;">
-                  <span>👁 ${fmtN(v.statistics?.viewCount)}</span><span>👥 ${subs} subs</span>
-                  <span style="color:${hot?'var(--green)':'var(--muted)'}">📈 ${r}x${hot?' 🔥':''}</span>
-                </div>
-                ${ch?`<div style="display:flex;align-items:center;gap:6px;margin-top:6px;padding:5px 8px;background:var(--card2);border-radius:7px;">
-                  ${chAvatar?`<img src="${chAvatar}" style="width:20px;height:20px;border-radius:50%;object-fit:cover;">`:''}
-                  <span style="font-size:11px;">${ch.snippet?.title||''}</span>
-                  <span style="font-size:10px;color:var(--muted);margin-left:auto;">🎬 ${fmtN(ch.statistics?.videoCount)} videos</span>
-                </div>`:''}
+      <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;">Signal Results — ${signals.length} channels detected</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Sorted by views-to-subscribers ratio — highest ratio = strongest algorithm push signal</div>
+      <div class="col" style="gap:12px;">${signals.map((s,i)=>{
+        const av=s.ch.snippet?.thumbnails?.medium?.url||s.ch.snippet?.thumbnails?.default?.url||'';
+        const thumb=s.vid.snippet?.thumbnails?.medium?.url||'';
+        const vid=s.vid.id;
+        const title=s.vid.snippet?.title||'';
+        const isFire=s.ratio>100,isHot=s.ratio>20,isNew=s.vCount<10;
+        return`<div class="signal-card fade-up" style="animation-delay:${i*40}ms">
+          <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;">
+            <img src="${av}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" onerror="this.style.display='none'">
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:5px;">
+                <div style="font-size:14px;font-weight:600;">${s.ch.snippet?.title||'Unknown'}</div>
+                ${isFire?`<span class="fire-b">🔥 ON FIRE</span>`:isHot?`<span class="hot-b">⚡ HOT</span>`:''}
+                ${isNew?`<span class="new-b">🆕 Very New</span>`:''}
               </div>
-              <button class="btn btn-primary btn-sm" style="flex-shrink:0;">Analyse</button>
+              <div style="display:flex;gap:10px;font-size:11px;color:var(--muted);flex-wrap:wrap;">
+                <span>👥 ${fN(s.subs)} subs</span>
+                <span>🎬 ${fN(s.vCount)} videos total</span>
+                <span>👁 ${fN(s.views)} on this video</span>
+                <span style="color:${isFire?'var(--red)':isHot?'var(--yellow)':'var(--green)'}">📈 ${s.ratio.toFixed(0)}x ratio</span>
+              </div>
             </div>
-          </div>`;
-        }).join('')}
-      </div>
-      <div style="margin-top:14px;"><button class="btn btn-primary" onclick="nicheToIdeas('${kw.replace(/'/g,"\\'")}')">💡 Generate Ideas from This Niche</button></div>`;
+            <div style="text-align:right;flex-shrink:0;">
+              <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:${isFire?'var(--red)':isHot?'var(--yellow)':'var(--green)'};">${s.ratio.toFixed(0)}x</div>
+              <div style="font-size:10px;color:var(--muted);">views/subs</div>
+            </div>
+          </div>
+          <!-- Saturation bar -->
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:4px;"><span>Signal Strength</span><span style="color:${isFire?'var(--red)':isHot?'var(--yellow)':'var(--green)'};">${isFire?'Extreme':isHot?'Strong':'Moderate'}</span></div>
+          <div class="sig-sat-bar"><div class="sig-sat-fill" style="width:${Math.min(100,s.ratio/2)}%;background:${isFire?'var(--red)':isHot?'var(--yellow)':'var(--green)'};"></div></div>
+          <!-- Top video -->
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;margin-top:12px;text-transform:uppercase;letter-spacing:.6px;">Viral Video</div>
+          <div class="sig-video" onclick="openMod('${vid}','${title.replace(/'/g,"\\'")}','${fN(s.views)}','${fN(s.vid.statistics?.likeCount)}')">
+            ${thumb?`<img class="sig-vid-thumb" src="${thumb}">`:''}
+            <div class="sig-vid-title">${title}</div>
+            <button class="btn btn-primary btn-sm" style="flex-shrink:0;">Analyse</button>
+          </div>
+        </div>`;
+      }).join('')}</div>`;
 
-    aiP.then(res=>{const el=document.getElementById('manual-ai');if(el)el.innerHTML=`<div class="insight-meta"><div class="pulse-dot"></div><div class="insight-label">AI Niche Analysis</div></div><div style="font-size:13px;line-height:1.8;white-space:pre-wrap;">${res}</div>`;}).catch(()=>{});
-  }catch(e){out.innerHTML=`<div class="empty-state" style="color:var(--red)">${e.message}</div>`;}
-  btn.disabled=false;btn.textContent='Scan';
+    // AI pattern analysis
+    const top3=signals.slice(0,3);
+    const aiContext=top3.map(s=>`Channel: ${s.ch.snippet?.title} | ${fN(s.vCount)} videos | ${fN(s.subs)} subs | Video: "${s.vid.snippet?.title}" | ${fN(s.views)} views | Ratio: ${s.ratio.toFixed(0)}x`).join('\n');
+    clF(`You are a YouTube niche analyst. These are REAL channels being pushed by YouTube's algorithm right now:\n\n${aiContext}\n\nFor a Matterverse creator (Salish/Jordan Matter niche, teens 12-17):\n1. What content pattern do these channels share?\n2. What format/niche is YouTube currently pushing?\n3. One specific actionable idea for Matterverse based on this signal\n\nBe direct. 3-4 sentences max.`).then(res=>{
+      const div=document.createElement('div');
+      div.className='insight-block fade-up';
+      div.style.marginTop='16px';
+      div.innerHTML=`<div class="ins-meta"><div class="pulse-dot"></div><div class="ins-lbl">AI Pattern Analysis</div></div><div style="font-size:13px;line-height:1.8;white-space:pre-wrap;">${res}</div>`;
+      out.appendChild(div);
+    }).catch(()=>{});
+
+  }catch(e){out.innerHTML=`<div class="empty-st" style="color:var(--red)">${e.message}</div>`;}
+  btn.disabled=false;btn.textContent='🔍 Scan Signals Now';
 }
 
 async function loadPushed(){
-  const btn=document.getElementById('pushed-btn'),out=document.getElementById('pushed-out');
+  const btn=document.getElementById('push-btn'),out=document.getElementById('push-out');
   if(!btn||!out)return;
-  btn.disabled=true;btn.textContent='Loading...';
-  out.innerHTML=`<div class="col" style="gap:10px;">${Array(4).fill(0).map(()=>`<div class="skeleton" style="height:110px;border-radius:12px;"></div>`).join('')}</div>`;
+  btn.disabled=true;btn.textContent='Detecting...';
+  out.innerHTML=`<div class="col" style="gap:10px;">${Array(4).fill(0).map(()=>`<div class="skeleton" style="height:110px;border-radius:13px;"></div>`).join('')}</div>`;
+
+  const after=new Date(Date.now()-10*86400000).toISOString();
+  // Use varied broad seeds to avoid getting the same channels
+  const seeds=['shorts 2025','viral short video','trending short','#shortsvideo','short clips viral','new shorts today','shorts going viral','mini video viral'];
+  const allVids=[];
+  const seenV=new Set();
+
   try{
-    const after=new Date(Date.now()-10*86400000).toISOString();
-    // Faceless-optimised keywords
-    const kws=['motivational shorts','facts shorts','satisfying shorts','pov story shorts','dark humor shorts'];
-    let allVids=[];
-    for(const kw of kws){
+    for(const seed of seeds){
       try{
-        const d=await ytF(`search?part=snippet&q=${encodeURIComponent(kw)}&type=video&videoDuration=short&order=viewCount&publishedAfter=${after}&maxResults=8`);
-        allVids.push(...(d.items||[]));
+        const d=await ytF(`search?part=snippet&q=${encodeURIComponent(seed)}&type=video&videoDuration=short&order=viewCount&publishedAfter=${after}&maxResults=8`);
+        for(const item of (d.items||[])){const vid=item.id?.videoId;if(vid&&!seenV.has(vid)){seenV.add(vid);allVids.push(item);}}
       }catch(e){continue;}
     }
-    const seenCh=new Set();
-    const uniq=allVids.filter(v=>{const cid=v.snippet?.channelId;if(seenCh.has(cid))return false;seenCh.add(cid);return true;});
-    const chIds=uniq.map(v=>v.snippet?.channelId).filter(Boolean).slice(0,20).join(',');
-    const vidIds=uniq.map(v=>v.id?.videoId).filter(Boolean).slice(0,20).join(',');
-    const[cDet,vDet]=await Promise.all([ytF(`channels?part=statistics,snippet&id=${chIds}`),ytF(`videos?part=statistics,snippet&id=${vidIds}`)]);
+
+    const vidIds=allVids.map(v=>v.id?.videoId).filter(Boolean).slice(0,40).join(',');
+    const chIds=[...new Set(allVids.map(v=>v.snippet?.channelId).filter(Boolean))].slice(0,25).join(',');
+    const[vDet,cDet]=await Promise.all([ytF(`videos?part=statistics,snippet&id=${vidIds}`),ytF(`channels?part=statistics,snippet&id=${chIds}`)]);
     const chs=cDet.items||[],vids=vDet.items||[];
-    const vidMap={};vids.forEach(v=>vidMap[v.id]=v);
+    const chMap={};chs.forEach(c=>{chMap[c.id]=c;});
+    const vMap={};vids.forEach(v=>{vMap[v.id]=v;});
 
-    const pushed=chs.map(ch=>{
-      const uv=uniq.find(v=>v.snippet?.channelId===ch.id);
-      const vid=uv?vidMap[uv.id?.videoId]:null;
+    const pushed=[];
+    const seenCh=new Set();
+    for(const raw of allVids){
+      const vid=raw.id?.videoId;
+      const det=vMap[vid];
+      if(!det)continue;
+      const chId=det.snippet?.channelId||raw.snippet?.channelId;
+      if(seenCh.has(chId))continue;
+      const ch=chMap[chId];
+      if(!ch)continue;
       const subs=parseInt(ch.statistics?.subscriberCount||0);
-      const views=parseInt(vid?.statistics?.viewCount||0);
       const vCount=parseInt(ch.statistics?.videoCount||0);
-      const ratio=subs>0?views/subs:0;
-      return{ch,vid,subs,views,ratio,vCount};
-    })
-    .filter(x=>x.subs<20000&&x.views>30000&&x.ratio>3&&x.vCount>=3)
-    .sort((a,b)=>b.ratio-a.ratio)
-    .slice(0,10);
+      const views=parseInt(det.statistics?.viewCount||0);
+      // Strict filter: under 50 videos, under 10K subs, 100K+ views
+      if(subs>10000||vCount>50||views<100000)continue;
+      seenCh.add(chId);
+      const ratio=subs>0?views/subs:views;
+      pushed.push({ch,vid:det,subs,vCount,views,ratio});
+    }
 
-    if(!pushed.length){out.innerHTML=`<div class="empty-state">No strongly pushed faceless channels detected right now. Try again later.</div>`;btn.disabled=false;btn.textContent='↻ Refresh';return;}
+    pushed.sort((a,b)=>b.ratio-a.ratio);
 
-    out.innerHTML=`<div class="col" style="gap:10px;">${pushed.map(({ch,vid,subs,views,ratio,vCount})=>{
-      const avatar=ch.snippet?.thumbnails?.medium?.url||ch.snippet?.thumbnails?.default?.url||'';
-      const vidThumb=vid?.snippet?.thumbnails?.medium?.url||'';
-      const vidId=vid?.id||'';
-      const vidTitle=vid?.snippet?.title||'';
-      const isFire=ratio>20,isHot=ratio>8;
-      return`<div class="pushed-card fade-up">
-        <img class="pushed-avatar" src="${avatar}" onerror="this.style.display='none'">
-        <div class="pushed-info">
-          <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;flex-wrap:wrap;">
-            <div class="pushed-name">${ch.snippet?.title||'Unknown'}</div>
-            ${isFire?`<span class="fire-badge">🔥 ON FIRE</span>`:isHot?`<span class="hot-badge">⚡ HOT</span>`:''}
+    if(!pushed.length){out.innerHTML=`<div class="empty-st">No channels matched strict filters right now. The algorithm changes daily — try again tomorrow or loosen filters in Signal Scanner.</div>`;btn.disabled=false;btn.textContent='↻ Detect';return;}
+
+    out.innerHTML=`<div class="col" style="gap:10px;">${pushed.map(({ch,vid,subs,vCount,views,ratio})=>{
+      const av=ch.snippet?.thumbnails?.medium?.url||ch.snippet?.thumbnails?.default?.url||'';
+      const thumb=vid.snippet?.thumbnails?.medium?.url||'';
+      const vidId=vid.id||'';
+      const title=vid.snippet?.title||'';
+      const isFire=ratio>100,isHot=ratio>20,isNew=vCount<10;
+      return`<div class="ch-signal-card fade-up">
+        <img class="sig-avatar" src="${av}" onerror="this.style.display='none'">
+        <div class="sig-info">
+          <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:4px;">
+            <div class="sig-name">${ch.snippet?.title||'Unknown'}</div>
+            ${isFire?`<span class="fire-b">🔥 ON FIRE</span>`:isHot?`<span class="hot-b">⚡ HOT</span>`:''}
+            ${isNew?`<span class="new-b">🆕 New Channel</span>`:''}
           </div>
-          <div class="pushed-stats">
-            <span>👥 ${fmtN(subs)} subs</span>
-            <span>👁 ${fmtN(views)} views</span>
-            <span>🎬 ${fmtN(vCount)} videos</span>
-            <span style="color:${isFire?'var(--red)':isHot?'var(--yellow)':'var(--muted)'}">📈 ${ratio.toFixed(1)}x ratio</span>
+          <div class="sig-stats">
+            <span>👥 ${fN(subs)} subs</span>
+            <span>🎬 ${vCount} videos</span>
+            <span>👁 ${fN(views)} on viral Short</span>
+            <span style="color:${isFire?'var(--red)':isHot?'var(--yellow)':'var(--green)'}">📈 ${ratio.toFixed(0)}x ratio</span>
           </div>
-          ${vidTitle?`<div class="pushed-video" onclick="openMod('${vidId}','${vidTitle.replace(/'/g,"\\'")}','${fmtN(views)}','?')">
-            ${vidThumb?`<img class="pushed-vid-thumb" src="${vidThumb}">`:''}
-            <div class="pushed-vid-title">${vidTitle}</div>
+          ${title?`<div class="sig-video" onclick="openMod('${vidId}','${title.replace(/'/g,"\\'")}','${fN(views)}','?')">
+            ${thumb?`<img class="sig-vid-thumb" src="${thumb}">`:''}
+            <div class="sig-vid-title">${title}</div>
             <span style="font-size:11px;color:var(--pl);flex-shrink:0;">Analyse →</span>
           </div>`:''}
         </div>
       </div>`;
     }).join('')}`;
-  }catch(e){out.innerHTML=`<div class="empty-state" style="color:var(--red)">${e.message}</div>`;}
-  btn.disabled=false;btn.textContent='↻ Refresh';
+  }catch(e){out.innerHTML=`<div class="empty-st" style="color:var(--red)">${e.message}</div>`;}
+  btn.disabled=false;btn.textContent='↻ Detect';
 }
-
-function nicheToIdeas(kw){navigate('ideas');setTimeout(()=>{const inp=document.getElementById('idea-topic');if(inp){inp.value=kw;genIdeas();}},300);}
 
 // ─── Modal ────────────────────────────────────────────────────────────────────
-function openMod(vid,title,views,likes){
-  S.currentVideo={videoId:vid,title:decodeURIComponent((title||'').replace(/&#39;/g,"'").replace(/&quot;/g,'"')),views,likes};
-  document.getElementById('mod-title').textContent=S.currentVideo.title;
-  document.getElementById('mod-stats').innerHTML=`<span>👁 ${views}</span><span>👍 ${likes}</span>`;
-  document.getElementById('mod-iframe').src=`https://www.youtube.com/embed/${vid}?autoplay=1`;
-  document.getElementById('mod-note').value='';
-  document.getElementById('mod-ai').innerHTML=`<div class="modal-ai-empty">Run an analysis to get AI insights</div>`;
-  document.getElementById('modal-overlay').classList.add('open');
-}
-function closeMod(e){if(e&&e.target!==document.getElementById('modal-overlay'))return;document.getElementById('modal-overlay').classList.remove('open');document.getElementById('mod-iframe').src='';S.currentVideo=null;}
-async function runAI(type){
-  if(!S.currentVideo)return;
-  const{title,views,likes}=S.currentVideo;
-  const r=document.getElementById('mod-ai');
-  const btns=document.querySelectorAll('.modal-ai-btns .btn');
-  btns.forEach(b=>b.disabled=true);
-  r.innerHTML=`<div class="col" style="gap:5px;">${[85,60,90,50,75].map(w=>`<div class="skeleton" style="height:12px;width:${w}%;"></div>`).join('')}</div>`;
-  try{
-    let p='';
-    if(type==='steal')p=`Analyse:\nTitle:"${title}" Views:${views} Likes:${likes}\n1.Hook Template — exact structure\n2.Story Structure beat by beat\n3.Rewrite for Matterverse (Salish/Jordan Matter, teens 12-17)\n4.Why it works`;
-    if(type==='hook')p=`Score hook 1-10, suggest 2 improvements.\nTitle:"${title}" Views:${views}`;
-    if(type==='format')p=`Identify format, why it works, how to replicate.\nTitle:"${title}" Views:${views}`;
-    if(type==='ideas')p=`Generate 5 ideas for Matterverse (Salish/Jordan Matter, teens 12-17) inspired by:\nTitle:"${title}" Views:${views}`;
-    const res=await clF(p);
-    r.innerHTML=`<div class="fade-up" style="white-space:pre-wrap;">${res}</div>`;
-  }catch(e){r.innerHTML=`<div style="color:var(--red);font-size:12px;">${e.message}</div>`;}
-  btns.forEach(b=>b.disabled=false);
-}
+function openMod(vid,title,views,likes){S.curVid={videoId:vid,title:decodeURIComponent((title||'').replace(/&#39;/g,"'").replace(/&quot;/g,'"')),views,likes};document.getElementById('mod-title').textContent=S.curVid.title;document.getElementById('mod-stats').innerHTML=`<span>👁 ${views}</span><span>👍 ${likes}</span>`;document.getElementById('mod-iframe').src=`https://www.youtube.com/embed/${vid}?autoplay=1`;document.getElementById('mod-note').value='';document.getElementById('mod-ai').innerHTML=`<div class="mod-ai-empty">Run an analysis to get AI insights</div>`;document.getElementById('mod-ov').classList.add('open');}
+function closeMod(e){if(e&&e.target!==document.getElementById('mod-ov'))return;document.getElementById('mod-ov').classList.remove('open');document.getElementById('mod-iframe').src='';S.curVid=null;}
+async function runAI(type){if(!S.curVid)return;const{title,views,likes}=S.curVid;const r=document.getElementById('mod-ai');const btns=document.querySelectorAll('.mod-ai-btns .btn');btns.forEach(b=>b.disabled=true);r.innerHTML=`<div class="col" style="gap:5px;">${[85,60,90,50,75].map(w=>`<div class="skeleton" style="height:12px;width:${w}%;"></div>`).join('')}</div>`;try{let p='';if(type==='steal')p=`Title:"${title}" Views:${views}\n1.Hook Template\n2.Story Structure beat by beat\n3.Rewrite for Matterverse (Salish/Jordan Matter, teens 12-17)\n4.Why it works`;if(type==='hook')p=`Score hook 1-10, 2 improvements.\nTitle:"${title}" Views:${views}`;if(type==='format')p=`Identify format, why it works, replicate.\nTitle:"${title}"`;if(type==='ideas')p=`5 ideas for Matterverse from:\nTitle:"${title}" Views:${views}`;const res=await clF(p);r.innerHTML=`<div class="fade-up" style="white-space:pre-wrap;">${res}</div>`;}catch(e){r.innerHTML=`<div style="color:var(--red);font-size:12px;">${e.message}</div>`;}btns.forEach(b=>b.disabled=false);}
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    document.getElementById('modal-overlay').classList.remove('open');
-    document.getElementById('mod-iframe').src='';
-    if(document.getElementById('shorts-player').classList.contains('open'))closeSP();
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('mod-ov').classList.remove('open');document.getElementById('mod-iframe').src='';if(document.getElementById('sp').classList.contains('open'))closeSP();}});
+
+// Touch swipe support for shorts player — attached after DOM ready
+window.addEventListener('load',()=>{
+  const spBody=document.querySelector('.sp-body');
+  if(spBody){
+    spBody.addEventListener('touchstart',e=>{spTY=e.touches[0].clientY;},{passive:true});
+    spBody.addEventListener('touchend',e=>{if(spTY===null)return;const diff=spTY-e.changedTouches[0].clientY;if(Math.abs(diff)>60)spNav(diff>0?1:-1);spTY=null;},{passive:true});
   }
 });
 </script>
